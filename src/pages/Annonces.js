@@ -70,7 +70,11 @@ const Container = styled(motion.div)`
 `;
 const List = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(clamp(248px, 50vw, 350px), 1fr)
+  );
+
   grid-column-gap: 30px;
   padding: 0 30px;
   @media only screen and (min-width: 1100px) {
