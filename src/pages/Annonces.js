@@ -1,7 +1,30 @@
 import React from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import Maps from "../components/Maps";
+import { v4 as uuid } from "uuid";
 const AnnoncesTest = () => {
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  const scrollFunction = () => {
+    if (
+      document.body.scrollTop > 32 ||
+      document.documentElement.scrollTop > 32
+    ) {
+      // document.getElementById("map").style.height = "calc(10vh - 2rem)";
+      document.getElementById("map").style.top = "1rem";
+      document.getElementById("map").style.bottom = "1rem";
+      document.getElementById("map").style.height = "calc(100vh - 2rem)"; //100vh -top and bottom position
+    } else {
+      // All theses values are defaults values in map
+      document.getElementById("map").style.top = "2.4rem";
+      document.getElementById("map").style.bottom = "1rem";
+      document.getElementById("map").style.height = "calc(97vh - 2.4rem)";
+    }
+  };
+
   return (
     <Annonces>
       <h1>
@@ -13,6 +36,7 @@ const AnnoncesTest = () => {
           {[...Array(40).keys()].map((e) => {
             return (
               <Annonce
+                key={uuid()}
                 className="item js-marker"
                 data-lat="48.423530"
                 data-lng="	7.663260"
@@ -31,7 +55,9 @@ const AnnoncesTest = () => {
           })}
         </List>
 
-        <Map className="map" id="map"></Map>
+        <Map className="map" id="map">
+          <Maps />
+        </Map>
       </Container>
     </Annonces>
   );
@@ -76,7 +102,7 @@ const Container = styled(motion.div)`
     padding: 0 min(1.3vh, 5rem) 0 min(4vh, 5rem);
     grid-column-gap: 1rem;
     display: grid;
-    grid-template-columns: 7fr 4fr;
+    grid-template-columns: 7fr 5fr;
   }
 `;
 const List = styled(motion.div)`
@@ -99,10 +125,10 @@ const Map = styled(motion.div)`
   @media only screen and (min-width: 1100px) {
     position: sticky !important;
     left: 0;
-    top: 1.5vh;
+    top: 2.4rem;
     background-color: #cccccc;
-    height: 97vh;
-
+    height: calc(97vh - 2.4rem);
+    transition: all 500ms linear 0s;
     /* height: 100vh; */
   }
 `;
