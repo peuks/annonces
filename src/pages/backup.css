@@ -1,0 +1,102 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  color: #4a4a4a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+}
+
+/* .list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 30px;
+  padding: 0 30px;
+} */
+
+/* .item {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: box-shadow .3s;
+  padding: 0 20px;
+} */
+
+/* .item:hover {
+  box-shadow: 0 0 10px rgba(0,0,0, .1);
+  background-color: #fff;
+} */
+
+/* .item h4 {
+  margin: 1rem 0 0.5rem 0;
+}
+
+.item p {
+  margin: 0 0 1rem 0;
+} */
+
+.item img {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  display: block;
+}
+
+.marker {
+  transform: translate(-50%, calc(-100% - 10px));
+  white-space: nowrap;
+  font-size: 16px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.marker::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -8px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #fff;
+}
+
+.marker.is-active {
+  background-color: #5069ff;
+  z-index: 300;
+  color: #fff;
+}
+
+.marker.is-active::after {
+  border-top-color: #5069ff;
+}
+
+@media only screen and (min-width: 1100px) {
+  .container {
+    display: grid;
+    grid-template-columns: 7fr 4fr;
+  }
+
+  .map {
+    position: sticky !important;
+    left: 0;
+    top: 0;
+    background-color: #cccccc;
+    height: 100vh;
+  }
+
+  /* .list {
+    grid-template-columns: repeat(4, 1fr);
+  } */
+}

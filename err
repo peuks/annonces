@@ -1,0 +1,347 @@
+
+> annonces@0.1.0 start
+> react-scripts start
+
+Starting the development server...
+
+Failed to compile.
+
+./src/index.js
+  Line 15:  'reportWebVitals' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+> annonces@0.1.0 start
+> react-scripts start
+
+Starting the development server...
+
+Failed to compile.
+
+./src/index.js
+Module not found: Can't resolve './reportWebVitals' in '/home/skuep/code/04-React/annonces/src'
+Compiling...
+
+> annonces@0.1.0 start
+> react-scripts start
+
+Starting the development server...
+
+Failed to compile.
+
+./src/pages/Annonces.js
+Module not found: Can't resolve '@material-ui/core' in '/home/skuep/code/04-React/annonces/src/pages'
+Compiling...
+
+> annonces@0.1.0 start
+> react-scripts start
+
+Starting the development server...
+
+Compiled with warnings.
+
+./src/App.js
+  Line 5:  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/App.js
+  Line 5:  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/App.js
+  Line 2:  'AnnoncesTest' is defined but never used                               no-unused-vars
+  Line 5:  Expected an assignment or function call and instead saw an expression  no-unused-expressions
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled successfully!
+Compiling...
+Failed to compile.
+
+./src/App.js
+  Line 7:  'GlobalStyles' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Compiled successfully!
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 6:   'Annonces' is not defined  react/jsx-no-undef
+  Line 12:  'List' is not defined      react/jsx-no-undef
+  Line 32:  'Map' is not defined       react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 6:  'Annonces' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 15:  'Annonce' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Compiled successfully!
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 6:   'Annonces' is not defined  react/jsx-no-undef
+  Line 12:  'List' is not defined      react/jsx-no-undef
+  Line 15:  'Annonce' is not defined   react/jsx-no-undef
+  Line 32:  'Map' is not defined       react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 6:   'Annonces' is not defined  react/jsx-no-undef
+  Line 12:  'List' is not defined      react/jsx-no-undef
+  Line 15:  'Annonce' is not defined   react/jsx-no-undef
+  Line 32:  'Map' is not defined       react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 6:   'Annonces' is not defined  react/jsx-no-undef
+  Line 12:  'List' is not defined      react/jsx-no-undef
+  Line 15:  'Annonce' is not defined   react/jsx-no-undef
+  Line 32:  'Map' is not defined       react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+Syntax error: Unterminated template (44:32)
+
+  42 | const Annonce = styled(motion.div)``;
+  43 | const List = styled(motion.div)``;
+> 44 | const Map = styled(motion.div)``;
+     |                                 ^
+  45 |   /* display: grid;
+  46 |   grid-template-columns: 7fr 6fr; *
+  47 |
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+Syntax error: Unterminated template (44:35)
+
+  42 | const Annonce = styled(motion.div)``;
+  43 | const List = styled(motion.div)``;
+> 44 | /* const Map = styled(motion.div)``; */
+     |                                    ^
+  45 |   /* display: grid;
+  46 |   grid-template-columns: 7fr 6fr; *
+  47 |
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+Syntax error: Unterminated template (43:33)
+
+  41 | const Annonces = styled(motion.div)``;
+  42 | const Annonce = styled(motion.div)``;
+> 43 | const List = styled(motion.div)``;
+     |                                  ^
+  44 |
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+Syntax error: Unterminated template (47:1)
+
+  45 |   /* display: grid;
+  46 |   grid-template-columns: 7fr 6fr; */
+> 47 | `;
+     |  ^
+  48 |
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 15:  'Annonce' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 15:  'Annonce' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
+Compiling...
+Compiled successfully!
