@@ -1,42 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-
 import { v4 as uuid4 } from "uuid";
+import mapsPoint from "../images/mapsPoint.svg";
 // Variables
 const libraries = ["places"];
 
-const Maps = () => {
+const Maps = ({ properties, centerMap }) => {
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
     libraries: libraries,
   });
 
-  const [markers, setMarkers] = useState([]);
+  const [markers, setMarkers] = useState({ lat: 48.584614, lng: 7.7507127 });
+
+  useEffect(() => {
+    if (centerMap) {
+      setMarkers({ lat: centerMap.lat, lng: centerMap.lon });
+    }
+  }, [centerMap]);
 
   if (loadError) return "Error loading Maps";
   if (!isLoaded) return "Loading Maps";
 
-  let towns = {
-    erstein: { lat: 48.4277162, lng: 7.6616846 },
-    strasbourg: { lat: 48.584614, lng: 7.7507127 },
-  };
-
-  let towns2 = [
-    { erstein: { lat: 48.4277162, lng: 7.6616846 } },
-    { strasbourg: { lat: 48.584614, lng: 7.7507127 } },
-  ];
-
-  console.log(Marker);
   return (
-    <GoogleMap
-      mapContainerStyle={mapContainerStyle}
-      zoom={15}
-      center={towns.strasbourg}
-    >
-      <Marker
-        key={uuid4()}
-        position={{ lat: towns.erstein.lat, lng: towns.erstein.lng }}
-      />
+    <GoogleMap mapContainerStyle={mapContainerStyle} zoom={15} center={markers}>
+      {properties &&
+        properties.map(() => {
+          return (
+            <Marker
+              key={uuid4()}
+              icon={{
+                url: mapsPoint,
+                scaledSize: new window.google.maps.Size(72, 72),
+              }}
+              position={markers}
+            />
+          );
+        })}
     </GoogleMap>
   );
 };

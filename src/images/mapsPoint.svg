@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1185.177px" height="1458.647px" viewBox="0 0 1185.177 1458.647" enable-background="new 0 0 1185.177 1458.647"
+	 xml:space="preserve">
+<g>
+	
+		<radialGradient id="SVGID_1_" cx="89.6273" cy="-2533.3484" r="663.5215" gradientTransform="matrix(0.7626 0 0 0.2285 521.0489 1818.9395)" gradientUnits="userSpaceOnUse">
+		<stop  offset="0.1828" style="stop-color:#434343"/>
+		<stop  offset="0.2492" style="stop-color:#6C6C6C"/>
+		<stop  offset="0.3246" style="stop-color:#939393"/>
+		<stop  offset="0.4054" style="stop-color:#B4B4B4"/>
+		<stop  offset="0.4914" style="stop-color:#D0D0D0"/>
+		<stop  offset="0.5845" style="stop-color:#E5E5E5"/>
+		<stop  offset="0.6881" style="stop-color:#F4F4F4"/>
+		<stop  offset="0.8107" style="stop-color:#FCFCFC"/>
+		<stop  offset="1" style="stop-color:#FFFFFF"/>
+	</radialGradient>
+	<ellipse opacity="0.2" fill="url(#SVGID_1_)" cx="589.399" cy="1240.069" rx="505.984" ry="151.62"/>
+	<g>
+		<path fill="#2B9BD7" d="M1004.172,497.667c0,295.822-415.871,733.789-415.871,733.789s-415.87-437.967-415.87-733.789
+			c0-295.823,186.191-448.943,415.87-448.943S1004.172,201.844,1004.172,497.667z"/>
+		<circle fill="#FFFFFF" stroke="#2B9BD7" stroke-width="2.5162" stroke-miterlimit="10" cx="588.302" cy="470.394" r="318.975"/>
+		<g>
+			<g>
+				<path fill="#2B9BD7" d="M576.847,341.383L456.936,462.556c-2.986,3.016-4.661,7.09-4.661,11.335v174.855
+					c0,8.899,7.215,16.115,16.115,16.115h42.227c8.9,0,16.115-7.215,16.115-16.115v-70.865c0-8.899,7.215-16.114,16.115-16.114
+					h90.91c8.901,0,16.115,7.214,16.115,16.114v70.865c0,8.899,7.215,16.115,16.115,16.115h42.227
+					c8.899,0,16.115-7.215,16.115-16.115V473.891c0-4.245-1.675-8.319-4.66-11.335L599.756,341.383
+					C593.448,335.009,583.154,335.009,576.847,341.383z"/>
+				
+					<polyline fill="none" stroke="#2B9BD7" stroke-width="3.6092" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+					427.742,430.579 588.301,267.147 748.861,430.579 				"/>
+			</g>
+		</g>
+		<path opacity="0.23" fill="#FFFFFF" d="M588.301,48.725v1182.732c0,0,415.871-437.967,415.871-733.789
+			C1004.172,201.844,817.98,48.725,588.301,48.725z"/>
+	</g>
+</g>
+</svg>
