@@ -49,6 +49,9 @@ const SliderStyled = styled.section`
     /* width: 1000px;
     height: 600px; */
     border-radius: 5px;
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
   }
 
   .right-arrow {
@@ -77,6 +80,7 @@ const SliderStyled = styled.section`
   .slide.active {
     opacity: 1;
     transition-duration: 1s;
+    width: 100%;
     /* transform: scale(1.08); */
   }
 `;
