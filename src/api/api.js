@@ -12,3 +12,4 @@ const baseUrl =
 const properties = "properties";
 
 export const propertiesUrl = () => `${baseUrl}/${properties}`;
+export const propertysUrl = (id) => `${baseUrl}/${properties}/${id}`;

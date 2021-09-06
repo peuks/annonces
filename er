@@ -7,11 +7,16 @@ Starting the development server...
 Compiled with warnings.
 
 ./src/components/Maps.js
-  Line 34:  'towns' is assigned a value but never used   no-unused-vars
-  Line 39:  'towns2' is assigned a value but never used  no-unused-vars
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
 
 ./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 99:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 117:  'Info' is assigned a value but never used       no-unused-vars
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
@@ -19,47 +24,140 @@ To ignore, add // eslint-disable-next-line to the line before.
 Compiling...
 Failed to compile.
 
-./src/components/Maps.js
-Syntax error: Unexpected token (38:10)
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (10:15)
 
-  36 |       {/* {/* {properties && */}
-  37 |         properties.map(() => {
-> 38 |           return ( */}
-     |           ^
-  39 |       <Marker key={uuid4()} icon={{ mapsPoint }} position={markers} />
-  40 |       );
-  41 |       })}
-Compiling...
-Failed to compile.
-
-./src/components/Maps.js
-Syntax error: Unexpected token (38:10)
-
-  36 |       {/* {/* {properties && */}
-  37 |         properties.map(() => {
-> 38 |           return ( 
-     |           ^
-  39 |       <Marker key={uuid4()} icon={{ mapsPoint }} position={markers} />
-  40 |       );
-  41 |       })}
-Compiling...
-Failed to compile.
-
-./src/components/Maps.js
-Syntax error: Unexpected token (38:10)
-
-  36 |       {/* {/* {properties && */}
-  37 |         properties.map(() => {
-> 38 |           return ( 
-     |           ^
-  39 |       <Marker key={uuid4()} icon={{ mapsPoint }} position={markers} />
-  40 |       )
-  41 |       })
+   8 |   const [fetchApi, setFetchApi] = useState(null);
+   9 |   const [property, setProperty] = useState(null);
+> 10 | console.log(je suis ici)
+     |                ^
+  11 |   useEffect(async () => {
+  12 |     if (!fetchApi) {
+  13 |       const res = await axios.get(propertysUrl(pathId));
 Compiling...
 Compiled with warnings.
 
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
 ./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 99:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 117:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 100:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 111:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 118:  'Info' is assigned a value but never used       no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 100:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 111:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 118:  'Info' is assigned a value but never used       no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 99:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 117:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 99:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 117:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 9:    'property' is assigned a value but never used   no-unused-vars
+  Line 98:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 109:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 116:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 53:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 98:   'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 109:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 116:  'Info' is assigned a value but never used                                                                  no-unused-vars
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
@@ -67,66 +165,1327 @@ To ignore, add // eslint-disable-next-line to the line before.
 Compiling...
 Failed to compile.
 
-./src/components/Maps.js
-Syntax error: Unexpected token (42:5)
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (52:27)
 
-  40 |       );
-  41 |       // {/* })} */}
-> 42 |     </GoogleMap>
+  50 |         </Description>
+  51 |         <Gallery className="gallery">
+> 52 |           {property.images?.map((screen) => (
+     |                            ^
+  53 |             <img src={screen.image.url} />
+  54 |           ))}
+  55 |         </Gallery>
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (52:27)
+
+  50 |         </Description>
+  51 |         <Gallery className="gallery">
+> 52 |           {property.images??.map((screen) => (
+     |                            ^
+  53 |             <img src={screen.image.url} />
+  54 |           ))}
+  55 |         </Gallery>
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 53:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 98:   'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 109:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 116:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 9:    'property' is assigned a value but never used   no-unused-vars
+  Line 98:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 109:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 116:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 99:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 117:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 54:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 99:   'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 117:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (55:17)
+
+  53 |           {property.images.map((screen) => (
+  54 |             console.lot(screen)
+> 55 |             <img src={screen.image.url} />
+     |                  ^
+  56 |           ))}
+  57 |         </Gallery>
+  58 |       </Detail>
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (55:0)
+
+  53 |           {property.images.map((screen) => (
+  54 |             console.lot(screen)
+> 55 | return            <img src={screen.image.url} />
+     | ^
+  56 |           ))}
+  57 |         </Gallery>
+  58 |       </Detail>
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 54:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 99:   'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 117:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (54:24)
+
+  52 |         <Gallery className="gallery">
+  53 |           {property.images.map((screen) => (
+> 54 |            {return <img src={screen.image.url} />}
+     |                         ^
+  55 |           ))}
+  56 |         </Gallery>
+  57 |       </Detail>
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (55:10)
+
+  53 |           {property.images.map((screen) => (
+  54 |            
+> 55 |           ))}
+     |           ^
+  56 |         </Gallery>
+  57 |       </Detail>
+  58 |     </CardShadow>
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 54:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 99:   'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 117:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (55:10)
+
+  53 |           {property.images.map((screen) => (
+  54 |             // <img src={screen.image.url} />
+> 55 |           ))}
+     |           ^
+  56 |         </Gallery>
+  57 |       </Detail>
+  58 |     </CardShadow>
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 100:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 111:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 118:  'Info' is assigned a value but never used       no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 54:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 99:   'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 117:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 99:   'Stats' is assigned a value but never used      no-unused-vars
+  Line 110:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 117:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 56:   Expected to return a value in arrow function    array-callback-return
+  Line 100:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 111:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 118:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 56:   Expected to return a value in arrow function    array-callback-return
+  Line 102:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 120:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   Expected to return a value in arrow function    array-callback-return
+  Line 103:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 114:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 121:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   Expected to return a value in arrow function    array-callback-return
+  Line 103:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 114:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 121:  'Info' is assigned a value but never used       no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 57:  Unexpected use of 'screen'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 57:  Unexpected use of 'screen'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 56:   Expected to return a value in arrow function                                                               array-callback-return
+  Line 57:   Expected an assignment or function call and instead saw an expression                                      no-unused-expressions
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 103:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 114:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 121:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 58:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 103:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 114:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 121:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/pages/Annonces.js
+  Line 50:  'pathId' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 47:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 50:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 57:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 102:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 113:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 120:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 24:  Unexpected use of 'history'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 24:  Unexpected use of 'history'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 24:  Unexpected use of 'history'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 24:  Unexpected use of 'history'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 24:  Unexpected use of 'history'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 24:  Unexpected use of 'history'  no-restricted-globals
+
+Search for the keywords to learn more about each error.
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 50:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 67:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 112:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 123:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 130:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 50:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 67:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 112:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 123:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 130:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 19:   'history' is assigned a value but never used                                                               no-unused-vars
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 50:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 50:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Adjacent JSX elements must be wrapped in an enclosing tag (73:4)
+
+  71 |         </Gallery>
+  72 |       </Detail>
+> 73 |     </CardShadow>
+     |     ^
+  74 |       }
+  75 | 
+  76 |   );
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (33:15)
+
+  31 |   return (
+  32 |     {
+> 33 |       property &&
+     |                ^
+  34 |       <CardShadow onClick={exitDetailHander} className="card card--shadow">
+  35 |       <Detail layoutId={pathId} className="card__detail">
+  36 |         {/* <Stats className="card__stats">
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (33:15)
+
+  31 |   return (
+  32 |     {
+> 33 |       property &&
+     |                ^
+  34 |       <CardShadow onClick={exitDetailHander} className="card card--shadow">
+  35 |       <Detail layoutId={pathId} className="card__detail">
+  36 |         {/* <Stats className="card__stats">
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:11)
+
+  30 | 
+  31 |   return (
+> 32 |           {!isLoading && (
+     |            ^
+  33 | 
+  34 |     <CardShadow onClick={exitDetailHander} className="card card--shadow">
+  35 |       <Detail layoutId={pathId} className="card__detail">
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:7)
+
+  30 | 
+  31 |   return (
+> 32 |       {!isLoading && (
+     |        ^
+  33 | 
+  34 |     <CardShadow onClick={exitDetailHander} className="card card--shadow">
+  35 |       <Detail layoutId={pathId} className="card__detail">
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (32:16)
+
+  30 | 
+  31 |   return (
+> 32 |       {property && (
+     |                 ^
+  33 | 
+  34 |     <CardShadow onClick={exitDetailHander} className="card card--shadow">
+  35 |       <Detail layoutId={pathId} className="card__detail">
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (76:2)
+
+  74 |       )}
+  75 | 
+> 76 |   );
+     |   ^
+  77 | };
+  78 | const CardShadow = styled(motion.div)`
+  79 |   /** Will take all the screen */
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/components/AnnonceDetail.js
+  Line 31:   Nested block is redundant                                                                                  no-lone-blocks
+  Line 32:   Expected an assignment or function call and instead saw an expression                                      no-unused-expressions
+  Line 69:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 115:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 126:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 133:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (61:35)
+
+  59 |         </Media>
+  60 |         <Description className="description">
+> 61 |           <p>{property.description?}</p>
+     |                                    ^
+  62 |         </Description>
+  63 |         <Gallery className="gallery">
+  64 |           {/* {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (61:35)
+
+  59 |         </Media>
+  60 |         <Description className="description">
+> 61 |           <p>{property.description??}</p>
+     |                                    ^
+  62 |         </Description>
+  63 |         <Gallery className="gallery">
+  64 |           {/* {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (61:23)
+
+  59 |         </Media>
+  60 |         <Description className="description">
+> 61 |           <p>{property.?description}</p>
+     |                        ^
+  62 |         </Description>
+  63 |         <Gallery className="gallery">
+  64 |           {/* {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (61:23)
+
+  59 |         </Media>
+  60 |         <Description className="description">
+> 61 |           <p>{property?.description}</p>
+     |                        ^
+  62 |         </Description>
+  63 |         <Gallery className="gallery">
+  64 |           {/* {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (61:23)
+
+  59 |         </Media>
+  60 |         <Description className="description">
+> 61 |           <p>{property??.description}</p>
+     |                        ^
+  62 |         </Description>
+  63 |         <Gallery className="gallery">
+  64 |           {/* {property.images.map((screen) => (
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  Line 113:  'Stats' is assigned a value but never used                                                                 no-unused-vars
+  Line 124:  'Platforms' is assigned a value but never used                                                             no-unused-vars
+  Line 131:  'Info' is assigned a value but never used                                                                  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
      |      ^
-  43 |   );
-  44 | };
-  45 |
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
+     |      ^
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
+     |      ^
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
+     |      ^
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
+     |      ^
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
+     |      ^
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (34:6)
+
+  32 |       {/* wait until content is ready to render */}
+  33 | 
+> 34 |       {!property && (
+     |       ^
+  35 |         <CardShadow onClick={exitDetailHander} className="card card--shadow">
+  36 |           <Detail layoutId={pathId} className="card__detail">
+  37 |             {/* <Stats className="card__stats">
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (32:5)
+
+  30 | 
+  31 |   return (
+> 32 |     <>
+     |      ^
+  33 |       {/* wait until content is ready to render */}
+  34 | 
+  35 |       {!property && (
 Compiling...
 Compiled with warnings.
 
-./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+./src/components/AnnonceDetail.js
+  Line 116:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 134:  'Info' is assigned a value but never used       no-unused-vars
+  Line 138:  'Media' is assigned a value but never used      no-unused-vars
 
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-Compiling...
-Compiled with warnings.
-
-./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
-
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-Compiling...
-Compiled with warnings.
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
 
 ./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
-
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-Compiling...
-Compiled with warnings.
-
-./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
-
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-Compiling...
-Compiled with warnings.
-
-./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
-
-Search for the keywords to learn more about each warning.
-To ignore, add // eslint-disable-next-line to the line before.
-
-Compiling...
-Compiled with warnings.
-
-./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
@@ -134,22 +1493,77 @@ To ignore, add // eslint-disable-next-line to the line before.
 Compiling...
 Failed to compile.
 
-./src/components/Maps.js
-  Line 35:  'google' is not defined  no-undef
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (65:27)
 
-Search for the keywords to learn more about each error.
+  63 |             </Media> */}
+  64 |             <Description className="description">
+> 65 |               <p>{property..description}</p>
+     |                            ^
+  66 |             </Description>
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
 Compiling...
 Failed to compile.
 
-./src/components/Maps.js
-  Line 35:  'windows' is not defined  no-undef
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (65:27)
+
+  63 |             </Media> */}
+  64 |             <Description className="description">
+> 65 |               <p>{property?.description}</p>
+     |                            ^
+  66 |             </Description>
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (65:27)
+
+  63 |             </Media> */}
+  64 |             <Description className="description">
+> 65 |               <p>{property??.description}</p>
+     |                            ^
+  66 |             </Description>
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (65:39)
+
+  63 |             </Media> */}
+  64 |             <Description className="description">
+> 65 |               <p>{property.description??}</p>
+     |                                        ^
+  66 |             </Description>
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+  Line 65:  'propert' is not defined  no-undef
 
 Search for the keywords to learn more about each error.
 Compiling...
 Compiled with warnings.
 
+./src/components/AnnonceDetail.js
+  Line 116:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 134:  'Info' is assigned a value but never used       no-unused-vars
+  Line 138:  'Media' is assigned a value but never used      no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
 ./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.
@@ -157,8 +1571,242 @@ To ignore, add // eslint-disable-next-line to the line before.
 Compiling...
 Compiled with warnings.
 
+./src/components/AnnonceDetail.js
+  Line 116:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 134:  'Info' is assigned a value but never used       no-unused-vars
+  Line 138:  'Media' is assigned a value but never used      no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
 ./src/pages/Annonces.js
-  Line 40:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 116:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 134:  'Info' is assigned a value but never used       no-unused-vars
+  Line 138:  'Media' is assigned a value but never used      no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (69:15)
+
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
+> 69 |                return  <img src={screen.image} key={screen.id} alt={screen.image} />
+     |                ^
+  70 |               ))}
+  71 |             </Gallery>
+  72 |           </Detail>
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 116:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 134:  'Info' is assigned a value but never used       no-unused-vars
+  Line 138:  'Media' is assigned a value but never used      no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token, expected , (70:0)
+
+  68 |               {property.images.map((screen) => (
+  69 |                 <img src={screen.image} key={screen.id} alt={screen.image} />
+> 70 | return ()
+     | ^
+  71 |               ))}
+  72 |             </Gallery>
+  73 |           </Detail>
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (69:0)
+
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
+> 69 | return (
+     | ^
+  70 |                 <img src={screen.image} key={screen.id} alt={screen.image} />
+  71 |               
+  72 | )
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (70:16)
+
+  68 |               {property.images.map((screen) => (
+  69 |                 {
+> 70 |                 <img src={screen.image} key={screen.id} alt={screen.image} />
+     |                 ^
+  71 |   
+  72 | }
+  73 |               ))}
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (70:14)
+
+  68 |               {property.images.map((screen) => (
+  69 | 
+> 70 |               ))}
+     |               ^
+  71 |             </Gallery>
+  72 |           </Detail>
+  73 |         </CardShadow>
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (69:16)
+
+  67 |             <Gallery className="gallery">
+  68 |               {property.images.map((screen) => (
+> 69 |                 return (
+     |                 ^
+  70 |                 <img src={screen.image} key={screen.id} alt={screen.image} />
+  71 |               
+  72 |                 )
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (70:14)
+
+  68 |               {property.images.map((screen) => (
+  69 | 
+> 70 |               ))}
+     |               ^
+  71 |             </Gallery>
+  72 |           </Detail>
+  73 |         </CardShadow>
+Compiling...
+Failed to compile.
+
+./src/components/AnnonceDetail.js
+Syntax error: Unexpected token (70:14)
+
+  68 |               {property.images.map((screen) => (
+  69 | 
+> 70 |               ))}
+     |               ^
+  71 |               {property.map(()=>{})}
+  72 |             </Gallery>
+  73 |           </Detail>
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   Expected to return a value in arrow function    array-callback-return
+  Line 114:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 125:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 132:  'Info' is assigned a value but never used       no-unused-vars
+  Line 136:  'Media' is assigned a value but never used      no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 68:   Expected to return a value in arrow function                           array-callback-return
+  Line 69:   Expected an assignment or function call and instead saw an expression  no-unused-expressions
+  Line 116:  'Stats' is assigned a value but never used                             no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used                         no-unused-vars
+  Line 134:  'Info' is assigned a value but never used                              no-unused-vars
+  Line 138:  'Media' is assigned a value but never used                             no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+./src/components/AnnonceDetail.js
+  Line 69:   Arrow function expected a return value                                 array-callback-return
+  Line 70:   Expected an assignment or function call and instead saw an expression  no-unused-expressions
+  Line 70:   Unreachable code                                                       no-unreachable
+  Line 117:  'Stats' is assigned a value but never used                             no-unused-vars
+  Line 128:  'Platforms' is assigned a value but never used                         no-unused-vars
+  Line 135:  'Info' is assigned a value but never used                              no-unused-vars
+  Line 139:  'Media' is assigned a value but never used                             no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+Compiling...
+Compiled with warnings.
+
+./src/components/AnnonceDetail.js
+  Line 116:  'Stats' is assigned a value but never used      no-unused-vars
+  Line 127:  'Platforms' is assigned a value but never used  no-unused-vars
+  Line 134:  'Info' is assigned a value but never used       no-unused-vars
+  Line 138:  'Media' is assigned a value but never used      no-unused-vars
+
+./src/components/Maps.js
+  Line 1:  'useCallback' is defined but never used  no-unused-vars
+  Line 1:  'useRef' is defined but never used       no-unused-vars
+
+./src/pages/Annonces.js
+  Line 49:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don't need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
 
 Search for the keywords to learn more about each warning.
 To ignore, add // eslint-disable-next-line to the line before.

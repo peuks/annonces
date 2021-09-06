@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import styled from "styled-components";
 import Maps from "../components/Maps";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 import { propertiesUrl } from "../api/api";
 import propertyPlaceholder from "../images/placeholder_house.jpg";
+import { Link, useLocation } from "react-router-dom";
+import AnnonceDetail from "../components/AnnonceDetail.js";
 
 const AnnoncesTest = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  console.log(id);
+  console.log(id);
   const [properties, setProperties] = useState(null);
   const [fetchApi, setFetchApi] = useState(null);
   const [test, setTest] = useState(undefined);
@@ -28,51 +35,65 @@ const AnnoncesTest = () => {
 
       <Container className="container">
         <List className="list">
-          {properties &&
-            properties.map((property) => {
-              return (
-                <Annonce
-                  key={uuid()}
-                  onClick={() => {
-                    setTest(property.location);
-                  }}
-                >
-                  <img
-                    src={
-                      property.images.length > 0
-                        ? property.images[
-                            ~~(Math.random() * property.images.length)
-                          ].url
-                        : propertyPlaceholder
-                    }
-                    alt="property image"
-                  />
-                  <Content className="content">
-                    <div className="content__left">
-                      <div className="content__adress">
-                        <h4>
-                          {property.city} <span>{property.address}</span>
-                        </h4>
+          <AnimateSharedLayout type="crossfade">
+            <AnimatePresence>
+              {id && <AnnonceDetail pathId={id} />}
+            </AnimatePresence>
+            {properties &&
+              properties.map((property) => {
+                return (
+                  <Annonce
+                    key={uuid()}
+                    onClick={() => {
+                      setTest(property.location);
+                    }}
+                  >
+                    <img
+                      src={
+                        property.images.length > 0
+                          ? property.images[
+                              ~~(Math.random() * property.images.length)
+                            ].url
+                          : propertyPlaceholder
+                      }
+                      alt="property image"
+                    />
+                    <Content className="content">
+                      <div className="content__left">
+                        <div className="content__adress">
+                          <h4>
+                            {property.city} <span>{property.address}</span>
+                          </h4>
+                        </div>
+                        <p>{property.currentRentalWithoutCharges} €</p>
+                        <div className="content__icon">
+                          <p>{property.size}m²</p>
+                          <p>{property.rentalType.type}</p>
+                          <p>4 ch</p>
+                        </div>
                       </div>
-                      <p>{property.currentRentalWithoutCharges} €</p>
-                      <div className="content__icon">
-                        <p>{property.size}m²</p>
-                        <p>{property.rentalType.type}</p>
-                        <p>4 ch</p>
+                      <div className="content__right">
+                        <Link
+                          layoutId={id}
+                          to={{
+                            pathname: `/annonces/${property.id}`,
+                            property: property,
+                          }}
+                          property={property}
+                        >
+                          <Button className="button button--primary">
+                            Candidater
+                          </Button>
+                        </Link>
+                        <Button className="button button--secondary">
+                          Contacter
+                        </Button>
                       </div>
-                    </div>
-                    <div className="content__right">
-                      <Button className="button button--primary">
-                        Candidater
-                      </Button>
-                      <Button className="button button--secondary">
-                        Contacter
-                      </Button>
-                    </div>
-                  </Content>
-                </Annonce>
-              );
-            })}
+                    </Content>
+                  </Annonce>
+                );
+              })}
+          </AnimateSharedLayout>
         </List>
 
         <Map className="map" id="map">
