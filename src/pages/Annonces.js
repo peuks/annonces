@@ -13,8 +13,6 @@ const AnnoncesTest = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
-  console.log(id);
-  console.log(id);
   const [properties, setProperties] = useState(null);
   const [fetchApi, setFetchApi] = useState(null);
   const [test, setTest] = useState(undefined);
