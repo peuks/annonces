@@ -20,17 +20,16 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <SliderStyled className="slider">
-      <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} />
+      <FaArrowAltCircleLeft className="slider__arrow slider__arrow--left left-arrow" onClick={prevSlide} />
+      <FaArrowAltCircleRight className="slider__arrow slider__arrow--right right-arrow" onClick={nextSlide} />
       {slides.map((slide, index) => {
-        console.log(slide);
         return (
           <div
-            className={index === current ? "slide active" : "slide"}
+            className={index === current ? "slider__slide slider__slide--active slide active" : "slider__slide slide"}
             key={index}
           >
             {index === current && (
-              <img src={slide.url} alt="travel image" className="image" />
+              <img src={slide.url} alt="travel image" className="slider__image image" />
             )}
           </div>
         );
@@ -39,15 +38,16 @@ const ImageSlider = ({ slides }) => {
   );
 };
 const SliderStyled = styled.section`
-  position: relative;
+
+position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: clamp(1rem, 0.875rem + 8.333vw, 3.5rem);
 
+
+
   .image {
-    /* width: 1000px;
-    height: 600px; */
     border-radius: 5px;
     width: 100%;
     height: 40vh;
@@ -78,9 +78,9 @@ const SliderStyled = styled.section`
   }
 
   .slide.active {
+    width: 100%;
     opacity: 1;
     transition-duration: 1s;
-    width: 100%;
     /* transform: scale(1.08); */
   }
 `;
