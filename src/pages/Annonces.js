@@ -7,7 +7,7 @@ import axios from "axios";
 import { propertiesUrl } from "../api/api";
 import propertyPlaceholder from "../images/placeholder_house.jpg";
 import { Link, useLocation } from "react-router-dom";
-import AnnonceDetail from "../components/AnnonceDetail.js";
+import AnnonceDetail from "./AnnonceDetails.js";
 
 const AnnoncesTest = () => {
   const location = useLocation();
@@ -33,10 +33,7 @@ const AnnoncesTest = () => {
 
       <Container className="container">
         <List className="list">
-          <AnimateSharedLayout type="crossfade">
-            <AnimatePresence>
-              {id && <AnnonceDetail pathId={id} />}
-            </AnimatePresence>
+           
             {properties &&
               properties.map((property) => {
                 return (
@@ -91,7 +88,6 @@ const AnnoncesTest = () => {
                   </Annonce>
                 );
               })}
-          </AnimateSharedLayout>
         </List>
 
         <Map className="map" id="map">

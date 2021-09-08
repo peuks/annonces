@@ -20,16 +20,30 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <SliderStyled className="slider">
-      <FaArrowAltCircleLeft className="slider__arrow slider__arrow--left left-arrow" onClick={prevSlide} />
-      <FaArrowAltCircleRight className="slider__arrow slider__arrow--right right-arrow" onClick={nextSlide} />
+      <FaArrowAltCircleLeft
+        className="slider__arrow slider__arrow--left left-arrow"
+        onClick={prevSlide}
+      />
+      <FaArrowAltCircleRight
+        className="slider__arrow slider__arrow--right right-arrow"
+        onClick={nextSlide}
+      />
       {slides.map((slide, index) => {
         return (
           <div
-            className={index === current ? "slider__slide slider__slide--active slide active" : "slider__slide slide"}
+            className={
+              index === current
+                ? "slider__slide slider__slide--active slide active"
+                : "slider__slide slide"
+            }
             key={index}
           >
             {index === current && (
-              <img src={slide.url} alt="travel image" className="slider__image image" />
+              <img
+                src={slide.url}
+                alt="travel image"
+                className="slider__image image"
+              />
             )}
           </div>
         );
@@ -38,20 +52,29 @@ const ImageSlider = ({ slides }) => {
   );
 };
 const SliderStyled = styled.section`
-
-position: relative;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: clamp(1rem, 0.875rem + 8.333vw, 3.5rem);
 
+  @media (min-width: 37.5em) {
+    .image {
+      width: 100%;
+      border-radius: 5px;
+      /* width: 100%; */
+      height: 60vh;
+      object-fit: cover;
+    }
+  }
 
-
-  .image {
-    border-radius: 5px;
-    width: 100%;
-    height: 40vh;
-    object-fit: cover;
+  @media (max-width: 37.6em) {
+    .image {
+      border-radius: 5px;
+      width: 100%;
+      height: 40vh;
+      object-fit: cover;
+    }
   }
 
   .right-arrow {

@@ -43,9 +43,9 @@ const AnnonceDetail = () => {
   return (
     <React.Fragment>
       {property && (
-        // <CardShadow onClick={exitDetailHander} className="card card--shadow">
         <Detail className="card__detail">
-          <Stats className="card__header">
+          {/* HEADER START */}
+          <SectionHeader className="card__header">
             <div className="card__title">
               <div>
                 <h1>
@@ -53,26 +53,33 @@ const AnnonceDetail = () => {
                 </h1>
                 <h1>{property.address}</h1>
               </div>
+
               <h1>
                 <b>
                   {property.currentRentalWithoutCharges + property.rentCharges}{" "}
                   €/Mois
                 </b>
               </h1>
-              {/* <p>Rating: 3.4</p>
-                {/* {getStars(rating)} */}
-              {/* A B C D E */}
             </div>
-          </Stats>
+          </SectionHeader>
+          {/* SLIDER */}
           <ImageSlider slides={property.images} />
-          
-          
 
-          <Button>
+          <AdresseStyled>
+            <h1>{property.city}</h1>
+            <h1> - </h1>
+            <h1>{property.address}</h1>
+          </AdresseStyled>
+
+          {/* BUTTONS */}
+          <ButtonsGroup className="buttons">
             <button className="blue">Candidater</button>
             <button className="white">Contacter</button>
-          </Button>
-          <div className="acred border">
+          </ButtonsGroup>
+
+
+
+          <SectionAccreditation className="border">
             {property.accreditations.map((e) => {
               return (
                 <figure>
@@ -81,43 +88,48 @@ const AnnonceDetail = () => {
                 </figure>
               );
             })}
-          </div>
-          
-          <h3>Les plus de {property.constructionType.name === "Maison" ? 'la maison':'l\'immeuble'}</h3>
-          <div className="acred border">
-            <figure>
-              <img src="http://placekitten.com/56/56" />
-              <figcaption>Coucou</figcaption>
-            </figure>
-            <figure>
-              <img src="http://placekitten.com/56/56" />
-              <figcaption>Coucou</figcaption>
-            </figure>
-          </div>
+          </SectionAccreditation>
 
-          <Description className="description border">
+          <h3>
+            Les plus de{" "}
+            {property.constructionType.name === "Maison"
+              ? "la maison"
+              : "l'immeuble"}
+          </h3>
+
+          <SectionAccreditation className="border">
+            <figure>
+              <img src="http://placekitten.com/56/56" />
+              <figcaption>Coucou</figcaption>
+            </figure>
+            <figure>
+              <img src="http://placekitten.com/56/56" />
+              <figcaption>Coucou</figcaption>
+            </figure>
+          </SectionAccreditation>
+
+          <SectionDescription className="border">
             <h3>A propos</h3>
             <p>{property.description}</p>
-          </Description>
+          </SectionDescription>
 
           <h3>Information financière</h3>
-          <div className="financier border">
+          <SectionFinancial className="border">
             <div>
-              <p>Loyers hors charges</p>
-              <b>1370 €</b>
+            <p>Loyers hors charges</p>
+            <p>Charges</p>
+            <p>Loyers avec charges</p>
             </div>
-            <div>
-              <p>Charges</p>
-              <b>30 €</b>
+            <div className="FinanceRight">
+            <b>1370 €</b>
+            <b>30 €</b>
+            <b>1400 €</b>
             </div>
-            <div>
-              <p>Loyers avec charges</p>
-              <b>1400 €</b>
-            </div>
-          </div>
+          </SectionFinancial>
 
           <h3>Energie</h3>
-          <div className="BlockEnergie">
+
+          <SectionEnergie className="BlockEnergie">
             <div>
               <h4>Diagnostic de performance énergétique</h4>
               <Scoring
@@ -135,12 +147,12 @@ const AnnonceDetail = () => {
                 type="energie certif"
               />
             </div>
-          </div>
+          </SectionEnergie>
 
-          <Button>
+          <ButtonsGroup className="buttons">
             <button className="blue">Candidater</button>
             <button className="white">Contacter</button>
-          </Button>
+          </ButtonsGroup>
         </Detail>
       )}
     </React.Fragment>
@@ -177,8 +189,41 @@ const CardShadow = styled(motion.div)`
     background: white;
   }
 `;
+const AdresseStyled = styled(motion.section)`
 
-const Button = styled(motion.div)`
+@media (max-width: 70em) {
+    display:none;
+  }
+
+  font-size:0.8rem;
+    text-align:center;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top:2rem;
+    margin-bottom:1rem;
+
+    gap: 1rem;
+
+    padding:1.5rem 0rem;
+
+    border-top:solid 1px #000000;
+    border-bottom:solid 1px #000000;
+`;
+const ButtonsGroup = styled(motion.div)`
+
+  @media (max-width: 31.25em) {
+    display:flex;
+    padding-top: 1rem;
+    justify-content: space-around;
+  }
+  @media (min-width: 31.25em) {
+    display:flex;
+    padding-top: 1rem;
+    gap:2rem;
+    justify-content: center;
+  }
 
     display:flex;
     padding-top: 1rem;
@@ -187,11 +232,11 @@ const Button = styled(motion.div)`
     button{
     border: 1px solid #0b3d91;
     border-radius: 50px;
-    font-size: 0.8445rem;
+    font-size: clamp(0.8rem,1.3vw,2rem);
     text-align:center;
     padding: 0.7em 0em;
     color: #ffffff;
-    width: clamp(7.375rem, 15vw, 25rem);
+    width: clamp(10rem,15vw,25rem);
 
     margin-bottom: 0.375rem;
     box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
@@ -215,36 +260,45 @@ const Detail = styled(motion.div)`
   width: 100%;
 
   /* border-radius: 0.4rem; */
+
   padding: 2rem min(3.5vw, 5rem);
+
+  @media (min-width: 37.5em) {
+    padding: 2rem min(7vw, 8rem);
+  }
+
+  @media (min-width: 75em) {
+    padding: 2rem min(15vw, 9rem);
+  }
+
+  @media (min-width: 70em) {
+    padding: 2rem min(20vw,15rem);
+  }
+
   background: white;
   position: absolute;
   /* left: 10%; */
   color: black;
   z-index: 10;
 
+  h3 {
+    font-size: clamp(0.2rem, 5vw, 1rem);
+    padding: 1.5rem 0rem;
+    font-weight: 700;
+  }
+
   h4 {
     padding-top: 0rem;
+    font-size: clamp(0.7rem, 2.5vw, 0.8rem);
   }
+ 
   .co2 {
     padding-top: 2rem;
-  }
-  .BlockEnergie{
-    padding-left:1rem; 
   }
 
   .border {
     border-bottom: solid 1px rgba(63, 61, 86, 0.1);
     padding-bottom: 3rem;
-  }
-
-  .acred {
-    padding-top: 3em;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    gap: clamp(1rem,1vw,5rem) clamp(0.6rem,1vw,5rem);
   }
 
   figure {
@@ -255,28 +309,50 @@ const Detail = styled(motion.div)`
     flex-direction: column;
     align-items: center;
     img {
-      width: clamp(4rem, 12vw, 5rem);
-      height: clamp(4rem, 12vw, 5rem);
+      width: clamp(4rem, 5.5vw, 5rem);
+      height: clamp(4rem, 5.5vw, 5rem);
+
       border-radius: 100%;
     }
   }
   figcaption {
-    font-size: clamp(0.2rem, 5vw, 1rem);
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
     text-align: center;
     padding-top: 0.5rem;
   }
-  .financier {
-    display: flex;
-    flex-direction: column;
-    div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+`;
+
+const SectionAccreditation = styled(motion.section)`
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: clamp(1rem, 1vw, 5rem) clamp(0.6rem, 1vw, 5rem);
+`;
+
+const SectionFinancial = styled(motion.section)`
+display: flex;
+justify-content: space-around;
+align-items: center;
+div{
+  display: flex;
+  flex-direction: column;
+
+}
+.FinanceRight{
+    align-items:flex-end;
+    display:flex;
+  }
+  b {
+    font-size: clamp(0.6rem, 4vw, 0.8rem);
+    line-height: 200%;
+    color: #3f3d56;
   }
 `;
 
-const Stats = styled(motion.div)`
+const SectionHeader = styled(motion.section)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -293,7 +369,7 @@ const Stats = styled(motion.div)`
     padding: 1em 0em;
   }
   h1 {
-    font-size: 0.95em;
+    font-size: clamp(0.9rem, 1vw, 2rem);
   }
 `;
 
@@ -318,15 +394,19 @@ const Media = styled(motion.div)`
   }
 `;
 
-const Description = styled(motion.div)`
+const SectionDescription = styled(motion.section)`
   /* margin: 5rem 0rem; */
   p {
     text-overflow: ellipsis;
     /* text-overflow: fade(20px); */
-
     white-space: nowrap;
     overflow: hidden;
   }
+`;
+
+const SectionEnergie = styled(motion.section)`
+  padding-left: 1rem;
+  padding-bottom: 4rem;
 `;
 
 const Gallery = styled(motion.div)`
