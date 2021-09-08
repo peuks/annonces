@@ -8,6 +8,8 @@ import { propertyPlaceholder } from "../images/placeholder_house.jpg";
 import Scoring from "../components/Scoring";
 import { Link, useLocation } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
+import Button from "../components/Button";
+import Accreditation from "../components/Accreditation";
 
 const AnnonceDetail = () => {
   const location = useLocation();
@@ -27,18 +29,6 @@ const AnnonceDetail = () => {
       console.log(res);
     }
   }, []);
-
-  const history = useHistory();
-
-  //Exit Detail
-  const exitDetailHander = (e) => {
-    const element = e.target;
-    if (element.classList.contains("card--shadow")) {
-      document.body.style.overflow = "scroll";
-      history.push("/annonces");
-    }
-  };
-  console.log(property);
 
   return (
     <React.Fragment>
@@ -72,23 +62,18 @@ const AnnonceDetail = () => {
           </AdresseStyled>
 
           {/* BUTTONS */}
-          <ButtonsGroup className="buttons">
-            <button className="blue">Candidater</button>
-            <button className="white">Contacter</button>
-          </ButtonsGroup>
+          <Button/>
 
 
 
           <SectionAccreditation className="border">
             {property.accreditations.map((e) => {
               return (
-                <figure>
-                  <img src="http://placekitten.com/56/56" />
-                  <figcaption>{e.label}</figcaption>
-                </figure>
+                <Accreditation/>
               );
             })}
-          </SectionAccreditation>
+            </SectionAccreditation>
+          
 
           <h3>
             Les plus de{" "}
@@ -97,15 +82,8 @@ const AnnonceDetail = () => {
               : "l'immeuble"}
           </h3>
 
-          <SectionAccreditation className="border">
-            <figure>
-              <img src="http://placekitten.com/56/56" />
-              <figcaption>Coucou</figcaption>
-            </figure>
-            <figure>
-              <img src="http://placekitten.com/56/56" />
-              <figcaption>Coucou</figcaption>
-            </figure>
+          <SectionAccreditation>
+            <Accreditation className="border"/>
           </SectionAccreditation>
 
           <SectionDescription className="border">
@@ -149,46 +127,23 @@ const AnnonceDetail = () => {
             </div>
           </SectionEnergie>
 
-          <ButtonsGroup className="buttons">
-            <button className="blue">Candidater</button>
-            <button className="white">Contacter</button>
-          </ButtonsGroup>
+          <Button/>
         </Detail>
       )}
     </React.Fragment>
   );
 };
 
-const CardShadow = styled(motion.div)`
-  /* &.energie{
-    &.__item{
-      &.--A{
-        background-color: yellow;
-      }
-    }
-  } */
+const SectionAccreditation = styled(motion.section)`
+  padding-top: 3em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-  /** Will take all the screen */
-  width: 100%;
-  min-height: 100vh;
-  /* when scroll , will stay on the screen */
-  overflow-y: scroll;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  z-index: 10;
-  /* Custom scroll barr */
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
-  }
-  &::-webkit-scrollbar-track {
-    background: white;
-  }
+  gap: clamp(1rem, 1vw, 5rem) clamp(0.6rem, 1vw, 5rem);
 `;
+
 const AdresseStyled = styled(motion.section)`
 
 @media (max-width: 70em) {
@@ -211,48 +166,7 @@ const AdresseStyled = styled(motion.section)`
     border-top:solid 1px #000000;
     border-bottom:solid 1px #000000;
 `;
-const ButtonsGroup = styled(motion.div)`
 
-  @media (max-width: 31.25em) {
-    display:flex;
-    padding-top: 1rem;
-    justify-content: space-around;
-  }
-  @media (min-width: 31.25em) {
-    display:flex;
-    padding-top: 1rem;
-    gap:2rem;
-    justify-content: center;
-  }
-
-    display:flex;
-    padding-top: 1rem;
-    justify-content: space-around;
-
-    button{
-    border: 1px solid #0b3d91;
-    border-radius: 50px;
-    font-size: clamp(0.8rem,1.3vw,2rem);
-    text-align:center;
-    padding: 0.7em 0em;
-    color: #ffffff;
-    width: clamp(10rem,15vw,25rem);
-
-    margin-bottom: 0.375rem;
-    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
-    }
-
-    .blue{
-      background: #0b3d91;
-    }
-    .white{
-      background: #ffffff;
-      color: #0b3d91;
-    }
-
-
-}
-`;
 
 const Detail = styled(motion.div)`
   /* top: 5vh; */
@@ -301,36 +215,10 @@ const Detail = styled(motion.div)`
     padding-bottom: 3rem;
   }
 
-  figure {
-    display: flex;
-    word-break: break-word;
-    width: clamp(6rem, 5vw, 11rem);
 
-    flex-direction: column;
-    align-items: center;
-    img {
-      width: clamp(4rem, 5.5vw, 5rem);
-      height: clamp(4rem, 5.5vw, 5rem);
-
-      border-radius: 100%;
-    }
-  }
-  figcaption {
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    text-align: center;
-    padding-top: 0.5rem;
-  }
 `;
 
-const SectionAccreditation = styled(motion.section)`
-  padding-top: 3em;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
 
-  gap: clamp(1rem, 1vw, 5rem) clamp(0.6rem, 1vw, 5rem);
-`;
 
 const SectionFinancial = styled(motion.section)`
 display: flex;
@@ -373,27 +261,6 @@ const SectionHeader = styled(motion.section)`
   }
 `;
 
-const Platforms = styled(motion.div)`
-  display: flex;
-  justify-content: space-evenly;
-  img {
-    margin-left: 3rem;
-  }
-`;
-const Info = styled(motion.div)`
-  text-align: center;
-`;
-
-const Media = styled(motion.div)`
-  margin-top: 5rem;
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  }
-`;
-
 const SectionDescription = styled(motion.section)`
   /* margin: 5rem 0rem; */
   p {
@@ -409,10 +276,5 @@ const SectionEnergie = styled(motion.section)`
   padding-bottom: 4rem;
 `;
 
-const Gallery = styled(motion.div)`
-  img {
-    padding: 1em 0;
-  }
-`;
 
 export default AnnonceDetail;
