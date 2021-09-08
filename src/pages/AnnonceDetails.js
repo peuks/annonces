@@ -115,19 +115,15 @@ const AnnonceDetail = () => {
 
           <h3>Information financière</h3>
           <SectionFinancial className="border">
-            <div className="finance">
-              <div>
-                <p>Loyers hors charges</p>
-                <b>1370 €</b>
-              </div>
-              <div>
-                <p>Charges</p>
-                <b>30 €</b>
-              </div>
-              <div>
-                <p>Loyers avec charges</p>
-                <b>1400 €</b>
-              </div>
+            <div>
+            <p>Loyers hors charges</p>
+            <p>Charges</p>
+            <p>Loyers avec charges</p>
+            </div>
+            <div className="FinanceRight">
+            <b>1370 €</b>
+            <b>30 €</b>
+            <b>1400 €</b>
             </div>
           </SectionFinancial>
 
@@ -337,19 +333,20 @@ const SectionAccreditation = styled(motion.section)`
 `;
 
 const SectionFinancial = styled(motion.section)`
-  .finance {
-    display: flex;
-    flex-direction: column;
-    /* width: 60%; */
+display: flex;
+justify-content: space-around;
+align-items: center;
+div{
+  display: flex;
+  flex-direction: column;
 
-    div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+}
+.FinanceRight{
+    align-items:flex-end;
+    display:flex;
   }
   b {
-    font-size: clamp(0.6rem, 4vw, 0.7rem);
+    font-size: clamp(0.6rem, 4vw, 0.8rem);
     line-height: 200%;
     color: #3f3d56;
   }
