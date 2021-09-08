@@ -21,24 +21,43 @@ const GlobalStyles = createGlobalStyle`
         }
     }
     body{
-        font-family: 'Montserrat', sans-serif;
+        @font-face {
+            font-family: 'Ubuntu', sans-serif;
+            src: url("../../Unbuntu-Regular.ttf") format("ttf")
+
+            /* font-family: 'Ubuntu', sans-serif;
+            src: url("../../Unbuntu-Medium.ttf") format("ttf") */
+        }
+
+        font-family: 'Ubuntu', sans-serif;
         width: 100%;
+    }
+    h1{
+        color: #3F3D56;
+        font-weight:500;
+
     }
     h2{
         font-size: 3rem;
         font-family: 'Abril Fatface', cursive;
         font-weight: lighter;
-        color: #333;
+        color: #3F3D56;
     }
     h3{
-        font-size: 1.3rem;
+        font-size: clamp(0.2rem,6vw,1.5rem);
+        color: #3F3D56;
+        padding: 1.5rem 0rem;
+        font-weight: 700;
+    }
+    h4{
+        font-size: 1rem;
         color: #3F3D56;
         padding: 1.5rem 0rem;
     }
     p{
-        font-size: 1.2rem;
+        font-size: clamp(0.8rem,4vw,1rem);
         line-height: 200%;
-        color: #696969;
+        color: ##3F3D56;
     }
     a{
         text-decoration: none;
@@ -61,6 +80,7 @@ const GlobalStyles = createGlobalStyle`
       opacity: 1;
       transition-delay: 0s;
     }
+
 `;
 
 export default GlobalStyles;
