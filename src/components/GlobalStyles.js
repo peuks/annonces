@@ -35,8 +35,8 @@ const GlobalStyles = createGlobalStyle`
     h1{
         color: #3F3D56;
         font-weight:500;
-
     }
+    
     h2{
         font-size: 3rem;
         font-family: 'Abril Fatface', cursive;
@@ -44,10 +44,7 @@ const GlobalStyles = createGlobalStyle`
         color: #3F3D56;
     }
     h3{
-        font-size: clamp(0.2rem,6vw,1.5rem);
         color: #3F3D56;
-        padding: 1.5rem 0rem;
-        font-weight: 700;
     }
     h4{
         font-size: 1rem;
@@ -55,9 +52,9 @@ const GlobalStyles = createGlobalStyle`
         padding: 1.5rem 0rem;
     }
     p{
-        font-size: clamp(0.8rem,4vw,1rem);
+        font-size: clamp(0.6rem,4vw,0.7rem);
         line-height: 200%;
-        color: ##3F3D56;
+        color: #3F3D56;
     }
     a{
         text-decoration: none;
