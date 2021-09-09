@@ -38,8 +38,6 @@ const GlobalStyles = createGlobalStyle`
     }
     
     h2{
-        font-size: 3rem;
-        font-family: 'Abril Fatface', cursive;
         font-weight: lighter;
         color: #3F3D56;
     }
@@ -47,13 +45,10 @@ const GlobalStyles = createGlobalStyle`
         color: #3F3D56;
     }
     h4{
-        font-size: 1rem;
         color: #3F3D56;
         padding: 1.5rem 0rem;
     }
     p{
-        font-size: clamp(0.6rem,4vw,0.7rem);
-        line-height: 200%;
         color: #3F3D56;
     }
     a{
@@ -77,6 +72,7 @@ const GlobalStyles = createGlobalStyle`
       opacity: 1;
       transition-delay: 0s;
     }
+    
 
 `;
 

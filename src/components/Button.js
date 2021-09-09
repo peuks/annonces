@@ -14,21 +14,14 @@ const Button = () => {
 export default Button
 const ButtonsGroup = styled(motion.div)`
 
-  @media (max-width: 31.25em) {
     display:flex;
     padding-top: 1rem;
     justify-content: space-around;
-  }
+
   @media (min-width: 31.25em) {
-    display:flex;
-    padding-top: 1rem;
     gap:2rem;
     justify-content: center;
   }
-
-    display:flex;
-    padding-top: 1rem;
-    justify-content: space-around;
 
     button{
     border: 1px solid #0b3d91;

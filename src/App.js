@@ -3,6 +3,9 @@ import GlobalStyles from "./components/GlobalStyles";
 import AnnoncesTest from "./pages/Annonces";
 import { Route } from "react-router-dom";
 import AnnonceDetails from "./pages/AnnonceDetails";
+import ValidationCandidature from "./components/ValidationCandidature";
+import ConnectionCandidature from "./components/ConnectionCandidature";
+import ContactProp from "./components/ContactProp";
 
 function App() {
   return (
@@ -13,6 +16,15 @@ function App() {
       </Route>
       <Route path={"/annonces/:id"}>
         <AnnonceDetails />
+      </Route>
+      <Route path={"/annonces/:id/candidature"}>
+        <ValidationCandidature />
+      </Route>
+      <Route path={"/annonces/:id/connectetoi"}>
+        <ConnectionCandidature/>
+      </Route>
+      <Route path={"/annonces/:id/contact"}>
+        <ContactProp/>
       </Route>
     </div>
   );

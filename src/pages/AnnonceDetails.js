@@ -62,18 +62,46 @@ const AnnonceDetail = () => {
           </AdresseStyled>
 
           {/* BUTTONS */}
-          <Button/>
+          {/* <Link
+            layoutId={id}
+            type={property.constructionType.name}
+            to={{
+              pathname: `/annonces/${property.id}/candidature`,
+              property: property,
+            }}
+            property={property}
+          >
+            <Button />
+          </Link> */}
 
+          {/* <Link
+            layoutId={id}
+            to={{
+              pathname: `/annonces/${property.id}/connectetoi`,
+              property: property,
+            }}
+            property={property}
+          >
+            <Button />
+          </Link> */}
 
+          <Link
+            layoutId={id}
+            type={property.constructionType.name}
+            to={{
+              pathname: `/annonces/${property.id}/contact`,
+              property: property,
+            }}
+            property={property}
+          >
+            <Button />
+          </Link>
 
           <SectionAccreditation className="border">
             {property.accreditations.map((e) => {
-              return (
-                <Accreditation/>
-              );
+              return <Accreditation />;
             })}
-            </SectionAccreditation>
-          
+          </SectionAccreditation>
 
           <h3>
             Les plus de{" "}
@@ -83,7 +111,7 @@ const AnnonceDetail = () => {
           </h3>
 
           <SectionAccreditation>
-            <Accreditation className="border"/>
+            <Accreditation className="border" />
           </SectionAccreditation>
 
           <SectionDescription className="border">
@@ -94,14 +122,14 @@ const AnnonceDetail = () => {
           <h3>Information financière</h3>
           <SectionFinancial className="border">
             <div>
-            <p>Loyers hors charges</p>
-            <p>Charges</p>
-            <p>Loyers avec charges</p>
+              <p>Loyers hors charges</p>
+              <p>Charges</p>
+              <p>Loyers avec charges</p>
             </div>
             <div className="FinanceRight">
-            <b>1370 €</b>
-            <b>30 €</b>
-            <b>1400 €</b>
+              <b>1370 €</b>
+              <b>30 €</b>
+              <b>1400 €</b>
             </div>
           </SectionFinancial>
 
@@ -127,7 +155,7 @@ const AnnonceDetail = () => {
             </div>
           </SectionEnergie>
 
-          <Button/>
+          <Button />
         </Detail>
       )}
     </React.Fragment>
@@ -145,28 +173,26 @@ const SectionAccreditation = styled(motion.section)`
 `;
 
 const AdresseStyled = styled(motion.section)`
-
-@media (max-width: 70em) {
-    display:none;
+  @media (max-width: 70em) {
+    display: none;
   }
 
-  font-size:0.8rem;
-    text-align:center;
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    margin: 0 auto;
-    margin-top:2rem;
-    margin-bottom:1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 
-    gap: 1rem;
+  gap: 1rem;
 
-    padding:1.5rem 0rem;
+  padding: 1.5rem 0rem;
 
-    border-top:solid 1px #000000;
-    border-bottom:solid 1px #000000;
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
 `;
-
 
 const Detail = styled(motion.div)`
   /* top: 5vh; */
@@ -176,6 +202,9 @@ const Detail = styled(motion.div)`
   /* border-radius: 0.4rem; */
 
   padding: 2rem min(3.5vw, 5rem);
+  p {
+    font-size: clamp(0.75rem, 4vw, 0.8rem);
+  }
 
   @media (min-width: 37.5em) {
     padding: 2rem min(7vw, 8rem);
@@ -186,7 +215,7 @@ const Detail = styled(motion.div)`
   }
 
   @media (min-width: 70em) {
-    padding: 2rem min(20vw,15rem);
+    padding: 2rem min(20vw, 15rem);
   }
 
   background: white;
@@ -205,7 +234,7 @@ const Detail = styled(motion.div)`
     padding-top: 0rem;
     font-size: clamp(0.7rem, 2.5vw, 0.8rem);
   }
- 
+
   .co2 {
     padding-top: 2rem;
   }
@@ -214,24 +243,19 @@ const Detail = styled(motion.div)`
     border-bottom: solid 1px rgba(63, 61, 86, 0.1);
     padding-bottom: 3rem;
   }
-
-
 `;
 
-
-
 const SectionFinancial = styled(motion.section)`
-display: flex;
-justify-content: space-around;
-align-items: center;
-div{
   display: flex;
-  flex-direction: column;
-
-}
-.FinanceRight{
-    align-items:flex-end;
-    display:flex;
+  justify-content: space-around;
+  align-items: center;
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  .FinanceRight {
+    align-items: flex-end;
+    display: flex;
   }
   b {
     font-size: clamp(0.6rem, 4vw, 0.8rem);
@@ -275,6 +299,5 @@ const SectionEnergie = styled(motion.section)`
   padding-left: 1rem;
   padding-bottom: 4rem;
 `;
-
 
 export default AnnonceDetail;

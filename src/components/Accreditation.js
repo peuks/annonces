@@ -7,7 +7,7 @@ const Accreditation = ({ label }) => {
     <SectionAcred>
     <figure>
       <img src="http://placekitten.com/56/56" />
-      <figcaption>{label}</figcaption>
+      <figcaption>{label}Hello</figcaption>
     </figure>
     </SectionAcred>
     
@@ -17,7 +17,7 @@ const Accreditation = ({ label }) => {
 export default Accreditation;
 
 const SectionAcred = styled(motion.section)`
-  padding-top: 3em;
+  padding-top: 1rem;
   display: flex;
   justify-content: center;
   flex-direction: row;
