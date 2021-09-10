@@ -58,7 +58,7 @@ const SliderStyled = styled.section`
   align-items: center;
   font-size: clamp(1rem, 0.875rem + 8.333vw, 3.5rem);
 
-  @media (min-width: 37.5em) {
+  @media (max-width: 9000rem) {
     .image {
       width: 100%;
       border-radius: 5px;
@@ -68,7 +68,7 @@ const SliderStyled = styled.section`
     }
   }
 
-  @media (max-width: 37.6em) {
+  @media (max-width: 50rem) {
     .image {
       border-radius: 5px;
       width: 100%;

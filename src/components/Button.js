@@ -45,5 +45,5 @@ const ButtonsGroup = styled(motion.div)`
     }
 
 
-}
+
 `;

@@ -26,6 +26,9 @@ const ContactProp = (layoutId) => {
         </p>
         <br/>
         <div className="defined">
+        <ButtonsGroup className="ici">
+              <button className="blue">Messagerie Apollo</button>
+        </ButtonsGroup>
           <div>
             <p>
               Marie PRIEUR
@@ -36,7 +39,7 @@ const ContactProp = (layoutId) => {
             <p>
               06.26.73.95.64
             </p>
-            <ButtonsGroup>
+            <ButtonsGroup className="pasici">
               <button className="blue">Messagerie Apollo</button>
             </ButtonsGroup>
           </div>
@@ -119,16 +122,36 @@ const Detail = styled(motion.div)`
 
   @media (max-width: 9000rem) {
     width: 40%;
+    .ici{
+        display:none;
+    }
   }
 
   @media (max-width: 75rem) {
     width: 60%;
+    .ici{
+        display:none;
+    }
   }
 
   @media (max-width: 40rem) {
     width: 95%;
     img{
         align-self:center;
+    }
+  }
+
+  @media (max-width: 31.25rem) {
+    width: 95%;
+    img{
+        align-self:center;
+    }
+    .ici{
+        display:inline;
+        align-self:center;
+    }
+    .pasici{
+        display:none;
     }
   }
 `;
