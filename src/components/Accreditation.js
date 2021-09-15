@@ -1,13 +1,26 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+// import test from {`../images/CircleIcons/${svgname}.svg`};
+import test from "../images/CircleIcons/fibre.svg";
 
-const Accreditation = ({ label }) => {
+
+
+const Accreditation = ({label, svgname}) => {
+
+  
+
+  console.log("ici");
+
+
+  console.log(svgname);
   return (
     <SectionAcred>
     <figure>
-      <img src="http://placekitten.com/56/56" />
-      <figcaption>{label}Hello</figcaption>
+      {/* <img src={`../images/CircleIcons/${svgname}.svg`} /> */}
+      <img src={test} />
+
+      <figcaption>{label}</figcaption>
     </figure>
     </SectionAcred>
     

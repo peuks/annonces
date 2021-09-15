@@ -46,7 +46,7 @@ const GlobalStyles = createGlobalStyle`
     }
     h4{
         color: #3F3D56;
-        padding: 1.5rem 0rem;
+        /* padding: 1.5rem 0rem; */
     }
     p{
         color: #3F3D56;
@@ -59,8 +59,6 @@ const GlobalStyles = createGlobalStyle`
         display: block;
     }
     input{
-        font-weight: bold;
-    font-family: "Montserrat", sans-serif;
     }
     .transition--hide{
       visibility: hidden;

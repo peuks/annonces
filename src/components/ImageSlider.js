@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa";
+// import { FaArrowAltCircleRight, ImArrowLeft2} from "react-icons/fa";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styled from "styled-components";
 
 const ImageSlider = ({ slides }) => {
@@ -20,11 +21,11 @@ const ImageSlider = ({ slides }) => {
 
   return (
     <SliderStyled className="slider">
-      <FaArrowAltCircleLeft
+      <IoIosArrowBack
         className="slider__arrow slider__arrow--left left-arrow"
         onClick={prevSlide}
       />
-      <FaArrowAltCircleRight
+      <IoIosArrowForward
         className="slider__arrow slider__arrow--right right-arrow"
         onClick={nextSlide}
       />
@@ -84,6 +85,8 @@ const SliderStyled = styled.section`
     z-index: 10;
     cursor: pointer;
     user-select: none;
+
+    color: white;
   }
 
   .left-arrow {
@@ -93,6 +96,8 @@ const SliderStyled = styled.section`
     z-index: 10;
     cursor: pointer;
     user-select: none;
+
+    color: white;
   }
 
   .slide {

@@ -10,15 +10,29 @@ import { Link, useLocation } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
 import Button from "../components/Button";
 import Accreditation from "../components/Accreditation";
+import Maps from "../components/Maps";
+
+// const url = "../images/CircleIcons/"
+// const sbg =".svg"
+// export const LienTest = () => `${url}${property.city}${svg}`;
+
+// import { StyleSheet, Text, View, Image} from 'react-native';
+
+// img react-icon
+import { IoMdCalendar } from "react-icons/io";
+import { MdEuroSymbol, MdLocationOn } from "react-icons/md";
+
 
 const AnnonceDetail = () => {
+
+
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
   const [fetchApi, setFetchApi] = useState(null);
   const [property, setProperty] = useState(null);
-  console.log("je suis ici");
-  console.log(property);
+  // console.log("je suis ici");
+  // console.log(property);
 
   useEffect(async () => {
     if (!fetchApi) {
@@ -29,6 +43,20 @@ const AnnonceDetail = () => {
       // console.log(res);
     }
   }, []);
+
+
+
+
+  // handleChange(e) {
+  //   this.setState({frais: property.});
+  // }
+
+  // function fraisDossier(frais) {
+  //   return (fahrenheit - 32) * 5 / 9;
+  // }
+
+// var Calendrier = require("../images/calendar.png");
+
 
   return (
     <React.Fragment>
@@ -57,8 +85,7 @@ const AnnonceDetail = () => {
                 <h2>
                   <b>
                     {property.currentRentalWithoutCharges +
-                      property.rentCharges}{" "}
-                    €
+                      property.rentCharges}{" "} €
                   </b>
                 </h2>
               </div>
@@ -81,16 +108,22 @@ const AnnonceDetail = () => {
             <CardDispo>
               <div>
                 <div>
-                  <img src="http://placekitten.com/g/22/22" alt="" />
-                  <p>Bien disponible à partir du 10/09/2021</p>
+                  <IoMdCalendar/>
+                  <p>
+                    Bien disponible à partir du <b>10/09/2021</b>
+                  </p>
                 </div>
                 <div>
-                  <img src="http://placekitten.com/g/22/22" alt="" />
-                  <p>11 place de la République, 67000 Strasbourg</p>
+                <MdLocationOn/>
+                  <p>
+                    <b>{property.address}, {property.zipcode} {property.city}</b>
+                  </p>
                 </div>
                 <div>
-                  <img src="http://placekitten.com/g/22/22" alt="" />
-                  <p>800€ / mois hors charges</p>
+                <MdEuroSymbol/>
+                  <p>
+                    <b>{property.currentRentalWithoutCharges} €</b> / mois hors charges
+                  </p>
                 </div>
               </div>
               <Link
@@ -117,12 +150,11 @@ const AnnonceDetail = () => {
             <Button />
           </Link> */}
 
-            <h3>A propos du bien</h3>
-
             <SectionAccreditation className="border">
               {property.accreditations.map((e) => {
-                return <Accreditation />;
-              })}
+                console.log(e);
+                return <Accreditation label={e.label} svgname={e.svgName}/>;
+              })} 
             </SectionAccreditation>
 
             <h3>
@@ -143,35 +175,50 @@ const AnnonceDetail = () => {
             <SectionLocalisation className="border">
               <h3>Localisation</h3>
               <h3>{property.address}</h3>
-              <div></div>
+              <div>
+          {property && <Maps property={property.city} />}
+        </div>
             </SectionLocalisation>
 
-            <h3>Information financière</h3>
+            <h3>Informations financières</h3>
             <SectionFinancial className="border">
               <tbody>
                 <div>
-                  <td className="border">
+                  <td>
                     <p>Loyers hors charges</p>
-                    <b>1370 €</b>
+                    <b>
+                      <nobr>{property.currentRentalWithoutCharges} €</nobr>
+                    </b>
                   </td>
-                  <td className="border">
+                  <td className="border marge">
                     <p>Charges</p>
-                    <b>30 €</b>
+                    <b>
+                      <nobr>{property.rentCharges} €</nobr>
+                    </b>
                   </td>
                   <td className="border">
-                    <p>Loyers avec charges</p>
-                    <b>1400 €</b>
+                    <p class="loyercharge">
+                      Loyers avec charges
+                    </p>
+                    <b>
+                      <nobr>{property.bail} €</nobr>
+                    </b>
                   </td>
                   <td className="border">
                     <p>Frais de dossier</p>
-                    <b>300 €</b>
+                    <b>
+                      {/* Arrondi à 2 chiffres après la virgule */}
+                      <nobr> {Math.round(property.bail * 0.25 *100)/100} € </nobr>
+                    </b>
                   </td>
                 </div>
               </tbody>
               <tbody>
                 <div>
                   <h4>Caution demandée</h4>
-                  <p>1600 €*</p>
+                  <p>
+                    <nobr>1600 €*</nobr>
+                  </p>
                   <br />
                   <i>
                     * Montant conforme à la loi ALUR. La caution vous est rendu
@@ -224,7 +271,8 @@ const AnnonceDetail = () => {
               <h4>Vous êtes intéressé par ce bien ? </h4>
               <div>
                 <p>
-                Contacter le propriétaire pour demander plus d’information et planifier une visite
+                  Contacter le propriétaire pour demander plus d’information et
+                  planifier une visite
                 </p>
                 <p>
                   Candidater à cet appartement, le propriétaire étudira votre
@@ -235,7 +283,9 @@ const AnnonceDetail = () => {
               <Button />
             </QuestionFin>
           </Detail>
-          <Map></Map>
+          <Map>
+          {property && <Maps property={property.city} />}
+        </Map>
         </Global>
       )}
     </React.Fragment>
@@ -261,6 +311,7 @@ const CardDispo = styled(motion.div)`
     gap: 1rem;
     button {
       font-size: clamp(0.8rem, 1.3vw, 1rem);
+      border-radius: 8px;
     }
   }
 
@@ -276,12 +327,20 @@ const CardDispo = styled(motion.div)`
     gap: 0.6rem;
     padding: 0.6rem;
   }
+  div svg{
+    width: 1.5rem;
+    height:1.5rem;
+    color:#0b3d91;
+  }
 `;
 
 const Global = styled(motion.div)`
   display: flex;
   @media (max-width: 68.75em) {
     flex-direction: column;
+  }
+  h4{
+    padding: 1.5rem 0rem;
   }
 `;
 
@@ -291,19 +350,18 @@ const SectionLocalisation = styled(motion.div)`
   }
 
   div {
-    background-color: green;
     width: 100%;
-    height: 30vh;
+    height: 50vh;
   }
 `;
 
 const Map = styled(motion.section)`
-  background-color: green;
-  width: 30%;
+  width: 40%;
+  /* height:40vh; */
 
-  @media (max-width: 68.75em) {
+  @media (max-width: 37.5em) {
     width: 100%;
-    height: 40vh;
+    height: 60vh;
   }
 `;
 
@@ -318,15 +376,11 @@ const SectionAccreditation = styled(motion.section)`
 `;
 
 const Detail = styled(motion.div)`
-  /* top: 5vh; */
-  /* width: 80%; */
   width: 70%;
 
   @media (max-width: 68.75em) {
     width: 100%;
   }
-
-  /* border-radius: 0.4rem; */
 
   padding: 2rem min(3.5vw, 5rem);
   p {
@@ -336,15 +390,6 @@ const Detail = styled(motion.div)`
   @media (min-width: 37.5em) {
     padding: 2rem min(7vw, 8rem);
   }
-
-  /* 
-  @media (min-width: 75em) {
-    padding: 2rem min(15vw, 9rem);
-  } */
-
-  /* @media (min-width: 70em) {
-    padding: 2rem min(20vw, 15rem);
-  } */
 
   h3 {
     font-size: clamp(0.75rem, 5vw, 1.25rem);
@@ -363,22 +408,25 @@ const Detail = styled(motion.div)`
 
   .border {
     border-bottom: solid 1px rgba(63, 61, 86, 0.1);
-    padding-bottom: 9%;
+    padding-bottom: 5%;
+  }
+  .marge {
+    margin-bottom: 2rem;
   }
 `;
 
 const SectionFinancial = styled(motion.section)`
   display: flex;
   gap: 2rem;
+
   @media (max-width: 37.5em) {
     display: flex;
-    /* justify-content: center; */
     flex-direction: column;
     align-items: center;
+    tbody {
+      width: 90%;
+    }
   }
-  /* tbody{
-    width:50%;
-  } */
 
   @media (min-width: 37.5em) {
     tbody {
@@ -395,11 +443,15 @@ const SectionFinancial = styled(motion.section)`
   td {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-top: 9%;
     gap: 3rem;
   }
+  .loyercharge{
+    font-size: clamp(0.95rem,3vw,1.2rem);;
+  }
   b {
-    font-size: clamp(0.75rem, 4vw, 0.8rem);
+    font-size: clamp(0.8rem, 2vw, 1rem);
   }
   i {
     font-size: clamp(0.75rem, 1vw, 0.8rem);
@@ -434,6 +486,14 @@ const SectionHeader = styled(motion.section)`
   @media (min-width: 37.6rem) {
     display: none;
   }
+
+  .buttons button {
+    border-radius: 8px;
+  }
+
+  div button {
+      margin: 4px;
+    }
 
   display: flex;
   justify-content: space-between;
@@ -483,27 +543,34 @@ const QuestionFin = styled(motion.section)`
   border-radius: 0.5rem;
   box-shadow: 0px 10px 10px lightgray;
   border-top: none;
-  
+
   button {
     font-size: clamp(0.8rem, 1.3vw, 1rem);
+    border-radius: 8px;
   }
 
   @media (max-width: 37.6rem) {
-    width: 90%;
-    div p{
-    display:none;
-  }
+    width: 95%;
+    div p {
+      display: none;
+    }
+    div button {
+      margin: 4px;
+    }
   }
 
-  div{
-    display:flex;
+  div p{
+    margin:0rem 1rem;
+  }
+
+  div {
+    display: flex;
     text-align: center;
-    justify-content:space-around;
+    justify-content: space-around;
   }
   h4 {
     text-align: center;
   }
-
 `;
 
 export default AnnonceDetail;
