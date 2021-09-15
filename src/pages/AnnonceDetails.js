@@ -22,10 +22,7 @@ import Maps from "../components/Maps";
 import { IoMdCalendar } from "react-icons/io";
 import { MdEuroSymbol, MdLocationOn } from "react-icons/md";
 
-
 const AnnonceDetail = () => {
-
-
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
@@ -44,9 +41,6 @@ const AnnonceDetail = () => {
     }
   }, []);
 
-
-
-
   // handleChange(e) {
   //   this.setState({frais: property.});
   // }
@@ -55,8 +49,7 @@ const AnnonceDetail = () => {
   //   return (fahrenheit - 32) * 5 / 9;
   // }
 
-// var Calendrier = require("../images/calendar.png");
-
+  // var Calendrier = require("../images/calendar.png");
 
   return (
     <React.Fragment>
@@ -85,47 +78,40 @@ const AnnonceDetail = () => {
                 <h2>
                   <b>
                     {property.currentRentalWithoutCharges +
-                      property.rentCharges}{" "} €
+                      property.rentCharges}{" "}
+                    €
                   </b>
                 </h2>
               </div>
               <Button />
             </SectionHeader>
 
-            {/* BUTTONS */}
-            {/* <Link
-            layoutId={id}
-            type={property.constructionType.name}
-            to={{
-              pathname: `/annonces/${property.id}/candidature`,
-              property: property,
-            }}
-            property={property}
-          >
-            <Button />
-          </Link> */}
-
             <CardDispo>
               <div>
                 <div>
-                  <IoMdCalendar/>
+                  <IoMdCalendar />
                   <p>
                     Bien disponible à partir du <b>10/09/2021</b>
                   </p>
                 </div>
                 <div>
-                <MdLocationOn/>
+                  <MdLocationOn />
                   <p>
-                    <b>{property.address}, {property.zipcode} {property.city}</b>
+                    <b>
+                      {property.address}, {property.zipcode} {property.city}
+                    </b>
                   </p>
                 </div>
                 <div>
-                <MdEuroSymbol/>
+                  <MdEuroSymbol />
                   <p>
-                    <b>{property.currentRentalWithoutCharges} €</b> / mois hors charges
+                    <b>{property.currentRentalWithoutCharges} €</b> / mois hors
+                    charges
                   </p>
                 </div>
               </div>
+
+              {/* Liens boutton : candidature valide / connection pour candidater / contact */}
               <Link
                 layoutId={id}
                 to={{
@@ -138,23 +124,12 @@ const AnnonceDetail = () => {
               </Link>
             </CardDispo>
 
-            {/* <Link
-            layoutId={id}
-            type={property.constructionType.name}
-            to={{
-              pathname: `/annonces/${property.id}/contact`,
-              property: property,
-            }}
-            property={property}
-          >
-            <Button />
-          </Link> */}
 
             <SectionAccreditation className="border">
               {property.accreditations.map((e) => {
                 console.log(e);
-                return <Accreditation label={e.label} svgname={e.svgName}/>;
-              })} 
+                return <Accreditation label={e.label} svgname={e.svgName} />;
+              })}
             </SectionAccreditation>
 
             <h3>
@@ -175,9 +150,7 @@ const AnnonceDetail = () => {
             <SectionLocalisation className="border">
               <h3>Localisation</h3>
               <h3>{property.address}</h3>
-              <div>
-          {property && <Maps property={property.city} />}
-        </div>
+              <div>{property && <Maps property={property.city} />}</div>
             </SectionLocalisation>
 
             <h3>Informations financières</h3>
@@ -197,9 +170,7 @@ const AnnonceDetail = () => {
                     </b>
                   </td>
                   <td className="border">
-                    <p class="loyercharge">
-                      Loyers avec charges
-                    </p>
+                    <p class="loyercharge">Loyers avec charges</p>
                     <b>
                       <nobr>{property.bail} €</nobr>
                     </b>
@@ -208,7 +179,10 @@ const AnnonceDetail = () => {
                     <p>Frais de dossier</p>
                     <b>
                       {/* Arrondi à 2 chiffres après la virgule */}
-                      <nobr> {Math.round(property.bail * 0.25 *100)/100} € </nobr>
+                      <nobr>
+                        {" "}
+                        {Math.round(property.bail * 0.25 * 100) / 100} €{" "}
+                      </nobr>
                     </b>
                   </td>
                 </div>
@@ -227,22 +201,6 @@ const AnnonceDetail = () => {
                   </i>
                 </div>
               </tbody>
-              {/*
-              <div>
-                <td>
-                <p>Loyers hors charges</p>
-                <p>Charges</p>
-                <p>Loyers avec charges</p>
-                <p>Frais de dossier</p>
-                </td>
-              </div>
-              <div className="FinanceRight">
-                <p>1370 €</p>
-                <p>30 €</p>
-                <p>1400 €</p>
-                <p>300 €</p>
-              </div>
-              */}
             </SectionFinancial>
 
             <h3>Energie</h3>
@@ -283,96 +241,21 @@ const AnnonceDetail = () => {
               <Button />
             </QuestionFin>
           </Detail>
-          <Map>
-          {property && <Maps property={property.city} />}
-        </Map>
+          <Map>{property && <Maps property={property.city} />}</Map>
         </Global>
       )}
     </React.Fragment>
   );
 };
 
-const CardDispo = styled(motion.div)`
-  @media (max-width: 37.5em) {
-    display: none;
-  }
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 1rem 0rem;
-  padding: 1rem;
-
-  border: solid 1px lightgray;
-  border-radius: 2rem;
-  box-shadow: 0px 5px 4px lightgrey;
-
-  a .buttons {
-    gap: 1rem;
-    button {
-      font-size: clamp(0.8rem, 1.3vw, 1rem);
-      border-radius: 8px;
-    }
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
-  div div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    gap: 0.6rem;
-    padding: 0.6rem;
-  }
-  div svg{
-    width: 1.5rem;
-    height:1.5rem;
-    color:#0b3d91;
-  }
-`;
-
 const Global = styled(motion.div)`
   display: flex;
   @media (max-width: 68.75em) {
     flex-direction: column;
   }
-  h4{
+  h4 {
     padding: 1.5rem 0rem;
   }
-`;
-
-const SectionLocalisation = styled(motion.div)`
-  @media (max-width: 37.5em) {
-    display: none;
-  }
-
-  div {
-    width: 100%;
-    height: 50vh;
-  }
-`;
-
-const Map = styled(motion.section)`
-  width: 40%;
-  /* height:40vh; */
-
-  @media (max-width: 37.5em) {
-    width: 100%;
-    height: 60vh;
-  }
-`;
-
-const SectionAccreditation = styled(motion.section)`
-  padding-top: 1em;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  gap: clamp(1rem, 1vw, 5rem) clamp(0.75rem, 1vw, 5rem);
 `;
 
 const Detail = styled(motion.div)`
@@ -415,6 +298,125 @@ const Detail = styled(motion.div)`
   }
 `;
 
+const SectionHeaderOrdi = styled(motion.section)`
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  padding-bottom: 1rem;
+  @media (max-width: 37.4rem) {
+    display: none;
+  }
+`;
+
+const SectionHeader = styled(motion.section)`
+  @media (min-width: 37.6rem) {
+    display: none;
+  }
+
+  .buttons button {
+    border-radius: 8px;
+  }
+
+  div button {
+    margin: 4px;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    display: inline;
+  }
+  .card__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 1em 0em;
+  }
+  h1 {
+    font-size: clamp(1.1rem, 2vw, 2rem);
+  }
+  h2 {
+    font-size: clamp(1.05rem, 2vw, 2rem);
+  }
+`;
+
+const CardDispo = styled(motion.div)`
+  @media (max-width: 37.5em) {
+    display: none;
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem 0rem;
+  padding: 1rem;
+
+  border: solid 1px lightgray;
+  border-radius: 2rem;
+  box-shadow: 0px 5px 4px lightgrey;
+
+  a .buttons {
+    gap: 1rem;
+    button {
+      font-size: clamp(0.8rem, 1.3vw, 1rem);
+      border-radius: 8px;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+  div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 0.6rem;
+    padding: 0.6rem;
+  }
+  div svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #0b3d91;
+  }
+`;
+
+const SectionAccreditation = styled(motion.section)`
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: clamp(1rem, 1vw, 5rem) clamp(0.75rem, 1vw, 5rem);
+`;
+
+const SectionDescription = styled(motion.section)`
+  p {
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap;
+    overflow: hidden; */
+    text-indent: 5%;
+    line-height: 2em;
+    text-align: justify;
+  }
+`;
+
+const SectionLocalisation = styled(motion.div)`
+  @media (max-width: 37.5em) {
+    display: none;
+  }
+
+  div {
+    width: 100%;
+    height: 50vh;
+  }
+`;
+
 const SectionFinancial = styled(motion.section)`
   display: flex;
   gap: 2rem;
@@ -447,8 +449,8 @@ const SectionFinancial = styled(motion.section)`
     padding-top: 9%;
     gap: 3rem;
   }
-  .loyercharge{
-    font-size: clamp(0.95rem,3vw,1.2rem);;
+  .loyercharge {
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
   }
   b {
     font-size: clamp(0.8rem, 2vw, 1rem);
@@ -458,77 +460,6 @@ const SectionFinancial = styled(motion.section)`
     color: #757575;
   }
 
-  /* display: flex;
-  align-items: center;
-  gap: 1rem;
-  div {
-    display: flex;
-    flex-direction: column;
-
-    gap: 1rem 1rem;
-  }
-  .FinanceRight {
-    align-items: flex-end;
-    display: flex;
-    font-weight: bold;
-  } */
-`;
-
-const SectionHeaderOrdi = styled(motion.section)`
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  padding-bottom: 1rem;
-  @media (max-width: 37.4rem) {
-    display: none;
-  }
-`;
-
-const SectionHeader = styled(motion.section)`
-  @media (min-width: 37.6rem) {
-    display: none;
-  }
-
-  .buttons button {
-    border-radius: 8px;
-  }
-
-  div button {
-      margin: 4px;
-    }
-
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  img {
-    width: 2rem;
-    height: 2rem;
-    display: inline;
-  }
-  .card__title {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-    padding: 1em 0em;
-  }
-  h1 {
-    font-size: clamp(1.1rem, 2vw, 2rem);
-  }
-  h2 {
-    font-size: clamp(1.05rem, 2vw, 2rem);
-  }
-`;
-
-const SectionDescription = styled(motion.section)`
-  /* margin: 5rem 0rem; */
-  p {
-    /* text-overflow: ellipsis; */
-    /* white-space: nowrap;
-    overflow: hidden; */
-    text-indent: 5%;
-    line-height: 2em;
-    text-align: justify;
-  }
 `;
 
 const SectionEnergie = styled(motion.section)`
@@ -559,8 +490,8 @@ const QuestionFin = styled(motion.section)`
     }
   }
 
-  div p{
-    margin:0rem 1rem;
+  div p {
+    margin: 0rem 1rem;
   }
 
   div {
@@ -572,5 +503,17 @@ const QuestionFin = styled(motion.section)`
     text-align: center;
   }
 `;
+
+const Map = styled(motion.section)`
+  width: 40%;
+  /* height:40vh; */
+
+  @media (max-width: 37.5em) {
+    width: 100%;
+    height: 60vh;
+  }
+`;
+
+
 
 export default AnnonceDetail;

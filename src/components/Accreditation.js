@@ -2,28 +2,21 @@ import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 // import test from {`../images/CircleIcons/${svgname}.svg`};
-import test from "../images/CircleIcons/fibre.svg";
+// import test from "../images/CircleIcons/fibre.svg";
 
-
-
-const Accreditation = ({label, svgname}) => {
-
-  
-
+const Accreditation = ({ label, svgname }) => {
   console.log("ici");
-
 
   console.log(svgname);
   return (
     <SectionAcred>
-    <figure>
-      {/* <img src={`../images/CircleIcons/${svgname}.svg`} /> */}
-      <img src={test} />
+      <figure>
+        {/* <img src={`../images/CircleIcons/${svgname}.svg`} /> */}
+        <img src={test} />
 
-      <figcaption>{label}</figcaption>
-    </figure>
+        <figcaption>{label}</figcaption>
+      </figure>
     </SectionAcred>
-    
   );
 };
 
@@ -36,7 +29,7 @@ const SectionAcred = styled(motion.section)`
   flex-direction: row;
   flex-wrap: wrap;
 
-  gap: clamp(1rem, 1vw, 5rem) clamp(0.6rem, 1vw, 5rem);
+  gap: clamp(1rem,9vw,15rem) clamp(1rem,6vw,9rem);
 
   figure {
     display: flex;
@@ -46,8 +39,8 @@ const SectionAcred = styled(motion.section)`
     flex-direction: column;
     align-items: center;
     img {
-      width: clamp(4rem, 5.5vw, 5rem);
-      height: clamp(4rem, 5.5vw, 5rem);
+      width: clamp(4rem, 5.5vw, 4.5rem);
+      height: clamp(4rem, 5.5vw, 4.5rem);
 
       border-radius: 100%;
     }
