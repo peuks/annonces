@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import Test from "./Test";
 // import test from {`../images/CircleIcons/${svgname}.svg`};
 // import test from "../images/CircleIcons/fibre.svg";
 
@@ -11,9 +12,10 @@ const Accreditation = ({ label, svgname }) => {
   return (
     <SectionAcred>
       <figure>
-        {/* <img src={`../images/CircleIcons/${svgname}.svg`} /> */}
-        <img src={test} />
+      <img src={require(`../images/CircleIcons/${svgname}.svg`)} />
 
+        {/* <img src={require(`../images/CircleIcons/fibre.svg`)} /> */}
+        {/* <Test/> */}
         <figcaption>{label}</figcaption>
       </figure>
     </SectionAcred>

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const Scoring = ({ type, score, variant }) => {
+const Scoring = ({score, variant }) => {
   // score="G"
   return (
     <ScoriStyled variant={variant} score={score} className="energie">
@@ -10,7 +10,7 @@ const Scoring = ({ type, score, variant }) => {
         return (
           <div
             className={`energie__item energie_item ${e} ${
-              e == score ? "energie__item ener" : ""
+              e === score ? "energie__item ener" : ""
             }`}
           >
             {e}

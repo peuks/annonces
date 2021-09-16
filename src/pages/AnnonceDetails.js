@@ -58,14 +58,16 @@ const AnnonceDetail = () => {
           <Detail className="card__detail">
             {/* HEADER START */}
 
-            {/* SLIDER */}
+            {/* Titre uniquement sur ordi */}
             <SectionHeaderOrdi className="card__header">
               <b>Charmant T2 meublé</b>
               <b> - </b>
               <b>{property.city}</b>
             </SectionHeaderOrdi>
 
+            {/* SLIDER */}
             <ImageSlider slides={property.images} />
+
             <SectionHeader className="card__header">
               <div className="card__title">
                 <div>
@@ -83,7 +85,31 @@ const AnnonceDetail = () => {
                   </b>
                 </h2>
               </div>
-              <Button />
+
+              <ButtonStyled>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/connectetoi`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                  <Button label="Candidater" />
+                </Link>
+
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/contact`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                <Button variant="secondary" label="Contacter" />
+                </Link>
+              </ButtonStyled>
+
             </SectionHeader>
 
             <CardDispo>
@@ -112,18 +138,31 @@ const AnnonceDetail = () => {
               </div>
 
               {/* Liens boutton : candidature valide / connection pour candidater / contact */}
-              <Link
-                layoutId={id}
-                to={{
-                  pathname: `/annonces/${property.id}/connectetoi`,
-                  property: property,
-                }}
-                property={property}
-              >
-                <Button />
-              </Link>
-            </CardDispo>
+              <ButtonStyled>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/connectetoi`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                  <Button label="Candidater" />
+                </Link>
 
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/contact`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                <Button variant="secondary" label="Contacter" />
+                </Link>
+              </ButtonStyled>
+
+            </CardDispo>
 
             <SectionAccreditation className="border">
               {property.accreditations.map((e) => {
@@ -212,7 +251,6 @@ const AnnonceDetail = () => {
                   variant="dpe"
                   test="styleComponentTest"
                   score={property.energyPerformanceCertificate}
-                  type="energie certif"
                 />
               </div>
               <div className="co2">
@@ -220,7 +258,6 @@ const AnnonceDetail = () => {
                 <Scoring
                   test="styleComponentTest"
                   score={property.greenHouseGas}
-                  type="energie certif"
                 />
               </div>
             </SectionEnergie>
@@ -238,7 +275,29 @@ const AnnonceDetail = () => {
                 </p>
               </div>
 
-              <Button />
+              <ButtonStyled2>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/connectetoi`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                  <Button label="Candidater" />
+                </Link>
+
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/contact`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                <Button variant="secondary" label="Contacter" />
+                </Link>
+              </ButtonStyled2>
             </QuestionFin>
           </Detail>
           <Map>{property && <Maps property={property.city} />}</Map>
@@ -247,6 +306,31 @@ const AnnonceDetail = () => {
     </React.Fragment>
   );
 };
+
+const ButtonStyled = styled(motion.div)`
+  display: flex;
+  justify-content: space-around;
+  gap:0.1rem;
+  a button {
+    padding: 0.8rem 0rem;
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    width: clamp(8rem,44vw,17rem);
+  }
+  @media (min-width: 37.5em) {
+    gap:1rem;
+  }
+
+`;
+
+const ButtonStyled2 = styled(motion.div)`
+  display: flex;
+  justify-content: space-around;
+
+  a button {
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    width: clamp(6rem,44vw,14rem);
+  }
+`;
 
 const Global = styled(motion.div)`
   display: flex;
@@ -311,13 +395,13 @@ const SectionHeader = styled(motion.section)`
     display: none;
   }
 
-  .buttons button {
+  /* .buttons button {
     border-radius: 8px;
-  }
+  } */
 
-  div button {
+  /* div button {
     margin: 4px;
-  }
+  } */
 
   display: flex;
   justify-content: space-between;
@@ -347,6 +431,7 @@ const CardDispo = styled(motion.div)`
   @media (max-width: 37.5em) {
     display: none;
   }
+  gap:1rem;
 
   display: flex;
   align-items: center;
@@ -358,13 +443,13 @@ const CardDispo = styled(motion.div)`
   border-radius: 2rem;
   box-shadow: 0px 5px 4px lightgrey;
 
-  a .buttons {
+  /* a .buttons {
     gap: 1rem;
     button {
       font-size: clamp(0.8rem, 1.3vw, 1rem);
       border-radius: 8px;
     }
-  }
+  } */
 
   div {
     display: flex;
@@ -459,7 +544,6 @@ const SectionFinancial = styled(motion.section)`
     font-size: clamp(0.75rem, 1vw, 0.8rem);
     color: #757575;
   }
-
 `;
 
 const SectionEnergie = styled(motion.section)`
@@ -475,23 +559,23 @@ const QuestionFin = styled(motion.section)`
   box-shadow: 0px 10px 10px lightgray;
   border-top: none;
 
-  button {
+  /* button {
     font-size: clamp(0.8rem, 1.3vw, 1rem);
     border-radius: 8px;
-  }
+  } */
 
   @media (max-width: 37.6rem) {
     width: 95%;
     div p {
       display: none;
     }
-    div button {
+    /* div button {
       margin: 4px;
-    }
+    } */
   }
 
   div p {
-    margin: 0rem 1rem;
+    margin: 1rem 1rem;
   }
 
   div {
@@ -513,7 +597,5 @@ const Map = styled(motion.section)`
     height: 60vh;
   }
 `;
-
-
 
 export default AnnonceDetail;
