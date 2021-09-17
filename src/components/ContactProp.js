@@ -1,53 +1,57 @@
 import { motion } from "framer-motion";
-import React from "react";
-import { useHistory } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router";
 import styled from "styled-components";
 
-const ContactProp = (layoutId) => {
-  const history = useHistory();
+const ContactProp = ({test}) => {
+
+  console.log(test);
 
   //Exit Detail
   const exitDetailHander = (e) => {
     const element = e.target;
     if (element.classList.contains("card--shadow")) {
       document.body.style.overflow = "scroll";
-      history.push(`/annonces/${layoutId}`);
+      window.history.back();
     }
   };
-  return (
-    <CardShadow onClick={exitDetailHander} className="card--shadow">
-      <Detail>
-        <h1>Contacter le propriétaire</h1>
-        <p>
-          <b>Adresse de la propriété : </b>32, Rue des Champs 75000 Paris
-        </p>
-        <p>
-          <b>Loyer : </b> 550€ CC
-        </p>
-        <br/>
-        <div className="defined">
-        <ButtonsGroup className="ici">
-              <button className="blue">Messagerie Apollo</button>
-        </ButtonsGroup>
-          <div>
-            <p>
-              Marie PRIEUR
-            </p>
-            <p>
-               marie.prieur@gmail.com
-            </p>
-            <p>
-              06.26.73.95.64
-            </p>
-            <ButtonsGroup className="pasici">
-              <button className="blue">Messagerie Apollo</button>
-            </ButtonsGroup>
-          </div>
+  const history = useHistory();
 
-          <img src="https://dummyimage.com/118x118.jpg" />
-        </div>
-      </Detail>
-    </CardShadow>
+  console.log(history);
+
+  return (
+    <React.Fragment>
+      {test && (
+        <CardShadow onClick={exitDetailHander} className="card--shadow">
+          <Detail>
+            <h1>Contacter le propriétaire</h1>
+            <p>
+              <b>Adresse de la propriété : </b> {test.adress}
+              
+            </p>
+            <p>
+              <b>Loyer : </b> 550€ CC
+            </p>
+            <br />
+            <div className="defined">
+              <ButtonsGroup className="ici">
+                <button className="blue">Messagerie Apollo</button>
+              </ButtonsGroup>
+              <div>
+                <p>Marie PRIEUR</p>
+                <p>marie.prieur@gmail.com</p>
+                <p>06.26.73.95.64</p>
+                <ButtonsGroup className="pasici">
+                  <button className="blue">Messagerie Apollo</button>
+                </ButtonsGroup>
+              </div>
+
+              <img src="https://dummyimage.com/118x118.jpg" />
+            </div>
+          </Detail>
+        </CardShadow>
+      )}
+    </React.Fragment>
   );
 };
 
@@ -94,11 +98,11 @@ const Detail = styled(motion.div)`
     justify-content: space-between;
     align-items: flex-end;
   }
-  
+
   @media (max-width: 31.25em) {
     .defined {
-        flex-direction: column-reverse;
-        align-items: flex-start;
+      flex-direction: column-reverse;
+      align-items: flex-start;
     }
   }
   h1 {
@@ -113,45 +117,44 @@ const Detail = styled(motion.div)`
   }
   img {
     border-radius: 100%;
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
   }
-  p{
-    font-size: clamp(0.9rem,2vw,0.97rem);
-
+  p {
+    font-size: clamp(0.9rem, 2vw, 0.97rem);
   }
 
   @media (max-width: 9000rem) {
     width: 40%;
-    .ici{
-        display:none;
+    .ici {
+      display: none;
     }
   }
 
   @media (max-width: 75rem) {
     width: 60%;
-    .ici{
-        display:none;
+    .ici {
+      display: none;
     }
   }
 
   @media (max-width: 40rem) {
     width: 95%;
-    img{
-        align-self:center;
+    img {
+      align-self: center;
     }
   }
 
   @media (max-width: 31.25rem) {
     width: 95%;
-    img{
-        align-self:center;
+    img {
+      align-self: center;
     }
-    .ici{
-        display:inline;
-        align-self:center;
+    .ici {
+      display: inline;
+      align-self: center;
     }
-    .pasici{
-        display:none;
+    .pasici {
+      display: none;
     }
   }
 `;
@@ -174,8 +177,8 @@ const ButtonsGroup = styled(motion.div)`
 
     margin-top: 1rem;
 
-    font-size: clamp(1rem,1vw,1.5rem);
-    padding: clamp(0.7rem,1.5vw,0.9rem) 0rem;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+    padding: clamp(0.7rem, 1.5vw, 0.9rem) 0rem;
     width: clamp(15rem, 2vw, 0rem);
   }
 `;

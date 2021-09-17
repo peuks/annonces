@@ -36,6 +36,8 @@ const AnnonceDetail = () => {
     }
   };
 
+
+
   return (
     <React.Fragment>
       {property && (

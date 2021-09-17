@@ -3,7 +3,6 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
 import { propertyPlaceholder } from "../images/placeholder_house.jpg";
 import Scoring from "../components/Scoring";
 import { Link, useLocation } from "react-router-dom";
@@ -29,8 +28,6 @@ const AnnonceDetail = () => {
 
   const [fetchApi, setFetchApi] = useState(null);
   const [property, setProperty] = useState(null);
-  // console.log("je suis ici");
-  console.log(property);
 
   useEffect(async () => {
     if (!fetchApi) {
@@ -39,6 +36,17 @@ const AnnonceDetail = () => {
       setFetchApi(true);
     }
   }, []);
+
+  // Liste des plus de l'immeuble/maison
+  const CatégorieA = [
+    "sport",
+    "concierge",
+    "ascenseur",
+    "local_a_velo",
+    "laverie",
+  ];
+
+  // let btn_class = this.state.black ? "blackButton" : "whiteButton";
 
   return (
     <React.Fragment>
@@ -103,9 +111,8 @@ const AnnonceDetail = () => {
                   layoutId={id}
                   to={{
                     pathname: `/annonces/${property.id}/contact`,
-                    property: property,
                   }}
-                  property={property}
+                  state={{ test: "test" }}
                 >
                   <Button variant="secondary" label="Contacter" />
                 </Link>
@@ -165,7 +172,12 @@ const AnnonceDetail = () => {
 
             <SectionAccreditation className="border">
               {property.accreditations.map((e) => {
-                return <Accreditation label={e.label} svgname={e.svgName} />;
+                // On enlève la CatégorieA de cette partie
+                if (CatégorieA.includes(e.svgName)) {
+                  return null;
+                } else {
+                  return <Accreditation label={e.label} svgname={e.svgName} />;
+                }
               })}
             </SectionAccreditation>
 
@@ -175,13 +187,21 @@ const AnnonceDetail = () => {
                 ? "la maison"
                 : "l'immeuble"}
             </h3>
+
+            {/* Affichage de la CatégorieA */}
             <SectionAccreditation className="border">
-              <Accreditation />
+              {property.accreditations.map((e) => {
+                if (CatégorieA.includes(e.svgName)) {
+                  return <Accreditation label={e.label} svgname={e.svgName} />;
+                }
+              })}
             </SectionAccreditation>
 
             <SectionDescription className="border">
               <h3>A propos</h3>
+
               <p>{property.description}</p>
+              <h1 onclick="">Test</h1>
             </SectionDescription>
 
             <SectionLocalisation className="border">
@@ -209,7 +229,11 @@ const AnnonceDetail = () => {
                   <td className="border">
                     <p class="loyercharge">Loyers avec charges</p>
                     <b>
-                      <nobr>{property.currentRentalWithoutCharges + property.rentCharges} €</nobr>
+                      <nobr>
+                        {property.currentRentalWithoutCharges +
+                          property.rentCharges}{" "}
+                        €
+                      </nobr>
                     </b>
                   </td>
                   <td className="border">
@@ -228,7 +252,7 @@ const AnnonceDetail = () => {
                 <div>
                   <h4>Caution demandée</h4>
                   <p>
-                  <nobr>{property.bail} €</nobr>
+                    <nobr>{property.bail} €</nobr>
                   </p>
                   <br />
                   <i>
@@ -275,12 +299,13 @@ const AnnonceDetail = () => {
 
               <ButtonStyled2>
                 <Link
-                  layoutId={id}
                   to={{
                     pathname: `/annonces/${property.id}/connectetoi`,
                     property: property,
                   }}
-                  property={property}
+                  // adress={property.adress}
+                  // code={property.zipcode}
+                  // city={property.city}
                 >
                   <Button label="Candidater" />
                 </Link>
@@ -327,7 +352,7 @@ const ButtonStyled = styled(motion.div)`
   a button {
     padding: 0.8rem 0rem;
     font-size: clamp(0.75rem, 5vw, 0.9rem);
-    width: clamp(8rem, 44vw, 17rem);
+    width: clamp(7rem, 40vw, 13rem);
   }
   @media (min-width: 37.5em) {
     gap: 1rem;
@@ -486,20 +511,26 @@ const SectionAccreditation = styled(motion.section)`
 
 const SectionDescription = styled(motion.section)`
   p {
-    /* text-overflow: ellipsis; */
-    /* white-space: nowrap;
+    /* text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden; */
+    background-color: green;
     text-indent: 5%;
     line-height: 2em;
     text-align: justify;
   }
+  .test p {
+    background-color: red;
+    /* text-overflow: none;
+    white-space: none;
+    overflow: none; */
+  }
 `;
 
 const SectionLocalisation = styled(motion.div)`
-display:none;
+  display: none;
   @media (min-width: 37.5em) {
     display: block;
-    
   }
 
   div {
@@ -515,8 +546,8 @@ const SectionFinancial = styled(motion.section)`
   gap: 2rem;
 
   tbody {
-      width: 90%;
-    }
+    width: 90%;
+  }
 
   @media (min-width: 37.5em) {
     flex-direction: row;
@@ -568,9 +599,9 @@ const QuestionFin = styled(motion.section)`
   border-top: none;
 
   width: 95%;
-    div p {
-      display: none;
-    }
+  div p {
+    display: none;
+  }
 
   @media (min-width: 37.6rem) {
     width: 80% !important;

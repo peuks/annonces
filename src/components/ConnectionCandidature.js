@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import styled from "styled-components";
 
-const ConnectionCandidature = (layoutId) => {
+const ConnectionCandidature = () => {
+
+
+
   const history = useHistory();
 
   //Exit Detail
@@ -11,7 +14,7 @@ const ConnectionCandidature = (layoutId) => {
     const element = e.target;
     if (element.classList.contains("card--shadow")) {
       document.body.style.overflow = "scroll";
-      history.push(`/annonces/${layoutId}`);
+      window.history.back();
     }
   };
 

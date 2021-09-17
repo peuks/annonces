@@ -62,7 +62,7 @@ const ScoriStyled = styled(motion.div)`
   }
   .ener {
     padding: 0.4rem 0.7rem;
-    z-index: 100;
+    z-index: 1;
     border-radius: 100%;
     position: relative;
   }

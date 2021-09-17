@@ -10,9 +10,6 @@ const Accreditation = ({ label, svgname }) => {
     <SectionAcred>
       <figure>
       <img src={require(`../images/CircleIcons/${svgname}.svg`)} />
-
-        {/* <img src={require(`../images/CircleIcons/fibre.svg`)} /> */}
-        {/* <Test/> */}
         <figcaption>{label}</figcaption>
       </figure>
     </SectionAcred>
