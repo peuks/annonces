@@ -29,7 +29,7 @@ const AnnonceDetail = () => {
 
   const [fetchApi, setFetchApi] = useState(null);
   const [property, setProperty] = useState(null);
-  console.log("je suis ici");
+  // console.log("je suis ici");
   console.log(property);
 
   useEffect(async () => {
@@ -37,8 +37,6 @@ const AnnonceDetail = () => {
       const res = await axios.get(propertysUrl(id));
       setProperty(res.data);
       setFetchApi(true);
-
-      // console.log(res);
     }
   }, []);
 
@@ -167,7 +165,6 @@ const AnnonceDetail = () => {
 
             <SectionAccreditation className="border">
               {property.accreditations.map((e) => {
-                console.log(e);
                 return <Accreditation label={e.label} svgname={e.svgName} />;
               })}
             </SectionAccreditation>
@@ -212,7 +209,7 @@ const AnnonceDetail = () => {
                   <td className="border">
                     <p class="loyercharge">Loyers avec charges</p>
                     <b>
-                      <nobr>{property.bail} €</nobr>
+                      <nobr>{property.currentRentalWithoutCharges + property.rentCharges} €</nobr>
                     </b>
                   </td>
                   <td className="border">
@@ -231,7 +228,7 @@ const AnnonceDetail = () => {
                 <div>
                   <h4>Caution demandée</h4>
                   <p>
-                    <nobr>1600 €*</nobr>
+                  <nobr>{property.bail} €</nobr>
                   </p>
                   <br />
                   <i>
@@ -523,6 +520,7 @@ const SectionFinancial = styled(motion.section)`
 
   @media (min-width: 37.5em) {
     flex-direction: row;
+    align-items: flex-start;
   }
 
   @media (min-width: 37.5em) {
