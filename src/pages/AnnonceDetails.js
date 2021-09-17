@@ -21,6 +21,7 @@ import Maps from "../components/Maps";
 // img react-icon
 import { IoMdCalendar } from "react-icons/io";
 import { MdEuroSymbol, MdLocationOn } from "react-icons/md";
+import { BiArrowBack } from "react-icons/bi";
 
 const AnnonceDetail = () => {
   const location = useLocation();
@@ -28,8 +29,8 @@ const AnnonceDetail = () => {
 
   const [fetchApi, setFetchApi] = useState(null);
   const [property, setProperty] = useState(null);
-  // console.log("je suis ici");
-  // console.log(property);
+  console.log("je suis ici");
+  console.log(property);
 
   useEffect(async () => {
     if (!fetchApi) {
@@ -41,20 +42,22 @@ const AnnonceDetail = () => {
     }
   }, []);
 
-  // handleChange(e) {
-  //   this.setState({frais: property.});
-  // }
-
-  // function fraisDossier(frais) {
-  //   return (fahrenheit - 32) * 5 / 9;
-  // }
-
-  // var Calendrier = require("../images/calendar.png");
-
   return (
     <React.Fragment>
       {property && (
         <Global>
+          <FlecheRetour>
+            <Link
+              to={{
+                pathname: `/annonces`,
+                property: property,
+              }}
+              property={property}
+            >
+              <BiArrowBack />
+            </Link>
+          </FlecheRetour>
+
           <Detail className="card__detail">
             {/* HEADER START */}
 
@@ -106,10 +109,9 @@ const AnnonceDetail = () => {
                   }}
                   property={property}
                 >
-                <Button variant="secondary" label="Contacter" />
+                  <Button variant="secondary" label="Contacter" />
                 </Link>
               </ButtonStyled>
-
             </SectionHeader>
 
             <CardDispo>
@@ -158,10 +160,9 @@ const AnnonceDetail = () => {
                   }}
                   property={property}
                 >
-                <Button variant="secondary" label="Contacter" />
+                  <Button variant="secondary" label="Contacter" />
                 </Link>
               </ButtonStyled>
-
             </CardDispo>
 
             <SectionAccreditation className="border">
@@ -295,7 +296,7 @@ const AnnonceDetail = () => {
                   }}
                   property={property}
                 >
-                <Button variant="secondary" label="Contacter" />
+                  <Button variant="secondary" label="Contacter" />
                 </Link>
               </ButtonStyled2>
             </QuestionFin>
@@ -307,55 +308,68 @@ const AnnonceDetail = () => {
   );
 };
 
+const FlecheRetour = styled(motion.div)`
+  svg {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem 0rem 0rem 0.5rem;
+  }
+
+  @media (min-width: 50em) {
+    svg {
+      width: 3rem !important;
+      height: 3rem !important;
+    }
+  }
+`;
+
 const ButtonStyled = styled(motion.div)`
   display: flex;
   justify-content: space-around;
-  gap:0.1rem;
+  gap: 0.1rem;
   a button {
     padding: 0.8rem 0rem;
     font-size: clamp(0.75rem, 5vw, 0.9rem);
-    width: clamp(8rem,44vw,17rem);
+    width: clamp(8rem, 44vw, 17rem);
   }
   @media (min-width: 37.5em) {
-    gap:1rem;
+    gap: 1rem;
   }
-
 `;
 
 const ButtonStyled2 = styled(motion.div)`
   display: flex;
   justify-content: space-around;
+  gap: 0.3rem;
 
   a button {
     font-size: clamp(0.75rem, 5vw, 0.9rem);
-    width: clamp(6rem,44vw,14rem);
+    width: clamp(5rem, 18vw, 14rem);
+  }
+  @media (min-width: 37.5em) {
+    gap: 1rem;
   }
 `;
 
 const Global = styled(motion.div)`
   display: flex;
-  @media (max-width: 68.75em) {
-    flex-direction: column;
+  flex-direction: column;
+
+  @media (min-width: 68.75em) {
+    flex-direction: row;
   }
+
   h4 {
     padding: 1.5rem 0rem;
   }
 `;
 
 const Detail = styled(motion.div)`
-  width: 70%;
-
-  @media (max-width: 68.75em) {
-    width: 100%;
-  }
-
+  width: 100%;
   padding: 2rem min(3.5vw, 5rem);
+
   p {
     font-size: clamp(0.8rem, 2vw, 1rem);
-  }
-
-  @media (min-width: 37.5em) {
-    padding: 2rem min(7vw, 8rem);
   }
 
   h3 {
@@ -380,13 +394,22 @@ const Detail = styled(motion.div)`
   .marge {
     margin-bottom: 2rem;
   }
+
+  @media (min-width: 68.75em) {
+    width: 70%;
+  }
+
+  @media (min-width: 37.5em) {
+    padding: 2rem min(7vw, 8rem);
+  }
 `;
 
 const SectionHeaderOrdi = styled(motion.section)`
   font-size: clamp(1rem, 3vw, 1.5rem);
   padding-bottom: 1rem;
-  @media (max-width: 37.4rem) {
-    display: none;
+  display: none;
+  @media (min-width: 37.4rem) {
+    display: block;
   }
 `;
 
@@ -394,15 +417,6 @@ const SectionHeader = styled(motion.section)`
   @media (min-width: 37.6rem) {
     display: none;
   }
-
-  /* .buttons button {
-    border-radius: 8px;
-  } */
-
-  /* div button {
-    margin: 4px;
-  } */
-
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -428,28 +442,21 @@ const SectionHeader = styled(motion.section)`
 `;
 
 const CardDispo = styled(motion.div)`
-  @media (max-width: 37.5em) {
-    display: none;
-  }
-  gap:1rem;
+  display: none;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 1rem 0rem;
-  padding: 1rem;
-
-  border: solid 1px lightgray;
-  border-radius: 2rem;
-  box-shadow: 0px 5px 4px lightgrey;
-
-  /* a .buttons {
+  @media (min-width: 37.5em) {
     gap: 1rem;
-    button {
-      font-size: clamp(0.8rem, 1.3vw, 1rem);
-      border-radius: 8px;
-    }
-  } */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0rem;
+    padding: 1rem;
+
+    border: solid 1px lightgray;
+    border-radius: 2rem;
+    box-shadow: 0px 5px 4px lightgrey;
+  }
 
   div {
     display: flex;
@@ -492,8 +499,10 @@ const SectionDescription = styled(motion.section)`
 `;
 
 const SectionLocalisation = styled(motion.div)`
-  @media (max-width: 37.5em) {
-    display: none;
+display:none;
+  @media (min-width: 37.5em) {
+    display: block;
+    
   }
 
   div {
@@ -504,15 +513,16 @@ const SectionLocalisation = styled(motion.div)`
 
 const SectionFinancial = styled(motion.section)`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
 
-  @media (max-width: 37.5em) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    tbody {
+  tbody {
       width: 90%;
     }
+
+  @media (min-width: 37.5em) {
+    flex-direction: row;
   }
 
   @media (min-width: 37.5em) {
@@ -559,19 +569,16 @@ const QuestionFin = styled(motion.section)`
   box-shadow: 0px 10px 10px lightgray;
   border-top: none;
 
-  /* button {
-    font-size: clamp(0.8rem, 1.3vw, 1rem);
-    border-radius: 8px;
-  } */
-
-  @media (max-width: 37.6rem) {
-    width: 95%;
+  width: 95%;
     div p {
       display: none;
     }
-    /* div button {
-      margin: 4px;
-    } */
+
+  @media (min-width: 37.6rem) {
+    width: 80% !important;
+    div p {
+      display: block;
+    }
   }
 
   div p {
@@ -590,7 +597,9 @@ const QuestionFin = styled(motion.section)`
 
 const Map = styled(motion.section)`
   width: 40%;
-  /* height:40vh; */
+  div {
+    background: rgba(0, 0, 0, 0.1);
+  }
 
   @media (max-width: 37.5em) {
     width: 100%;

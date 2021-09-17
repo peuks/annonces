@@ -15,8 +15,6 @@ const AnnonceDetail = () => {
 
   const [fetchApi, setFetchApi] = useState(null);
   const [property, setProperty] = useState(null);
-  // console.log("je suis ici");
-  // console.log(property);
 
   useEffect(async () => {
     if (!fetchApi) {
@@ -24,7 +22,6 @@ const AnnonceDetail = () => {
       setProperty(res.data);
       setFetchApi(true);
 
-      console.log(res);
     }
   }, []);
 
@@ -38,7 +35,6 @@ const AnnonceDetail = () => {
       history.push("/annonces");
     }
   };
-  console.log(property);
 
   return (
     <React.Fragment>
