@@ -201,7 +201,6 @@ const AnnonceDetail = () => {
               <h3>A propos</h3>
 
               <p>{property.description}</p>
-              <h1 onclick="">Test</h1>
             </SectionDescription>
 
             <SectionLocalisation className="border">
@@ -514,16 +513,9 @@ const SectionDescription = styled(motion.section)`
     /* text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden; */
-    background-color: green;
     text-indent: 5%;
     line-height: 2em;
     text-align: justify;
-  }
-  .test p {
-    background-color: red;
-    /* text-overflow: none;
-    white-space: none;
-    overflow: none; */
   }
 `;
 
