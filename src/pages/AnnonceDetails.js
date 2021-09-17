@@ -8,6 +8,19 @@ import { propertyPlaceholder } from "../images/placeholder_house.jpg";
 import Scoring from "../components/Scoring";
 import { Link, useLocation } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
+import Button from "../components/Button";
+import Accreditation from "../components/Accreditation";
+import Maps from "../components/Maps";
+
+// const url = "../images/CircleIcons/"
+// const sbg =".svg"
+// export const LienTest = () => `${url}${property.city}${svg}`;
+
+// import { StyleSheet, Text, View, Image} from 'react-native';
+
+// img react-icon
+import { IoMdCalendar } from "react-icons/io";
+import { MdEuroSymbol, MdLocationOn } from "react-icons/md";
 
 const AnnonceDetail = () => {
   const location = useLocation();
@@ -24,338 +37,376 @@ const AnnonceDetail = () => {
       setProperty(res.data);
       setFetchApi(true);
 
-      console.log(res);
+      // console.log(res);
     }
   }, []);
 
-  const history = useHistory();
+  // handleChange(e) {
+  //   this.setState({frais: property.});
+  // }
 
-  //Exit Detail
-  const exitDetailHander = (e) => {
-    const element = e.target;
-    if (element.classList.contains("card--shadow")) {
-      document.body.style.overflow = "scroll";
-      history.push("/annonces");
-    }
-  };
-  console.log(property);
+  // function fraisDossier(frais) {
+  //   return (fahrenheit - 32) * 5 / 9;
+  // }
+
+  // var Calendrier = require("../images/calendar.png");
 
   return (
     <React.Fragment>
       {property && (
-        <Detail className="card__detail">
-          {/* HEADER START */}
-          <SectionHeader className="card__header">
-            <div className="card__title">
-              <div>
-                <h1>
-                  <b>{property.city}</b>
-                </h1>
-                <h1>{property.address}</h1>
+        <Global>
+          <Detail className="card__detail">
+            {/* HEADER START */}
+
+            {/* Titre uniquement sur ordi */}
+            <SectionHeaderOrdi className="card__header">
+              <b>Charmant T2 meublé</b>
+              <b> - </b>
+              <b>{property.city}</b>
+            </SectionHeaderOrdi>
+
+            {/* SLIDER */}
+            <ImageSlider slides={property.images} />
+
+            <SectionHeader className="card__header">
+              <div className="card__title">
+                <div>
+                  <h1>
+                    <b>{property.city}</b>
+                  </h1>
+                  <h2>{property.address}</h2>
+                </div>
+
+                <h2>
+                  <b>
+                    {property.currentRentalWithoutCharges +
+                      property.rentCharges}{" "}
+                    €
+                  </b>
+                </h2>
               </div>
 
-              <h1>
-                <b>
-                  {property.currentRentalWithoutCharges + property.rentCharges}{" "}
-                  €/Mois
-                </b>
-              </h1>
-            </div>
-          </SectionHeader>
-          {/* SLIDER */}
-          <ImageSlider slides={property.images} />
+              <ButtonStyled>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/connectetoi`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                  <Button label="Candidater" />
+                </Link>
 
-          <AdresseStyled>
-            <h1>{property.city}</h1>
-            <h1> - </h1>
-            <h1>{property.address}</h1>
-          </AdresseStyled>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/contact`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                <Button variant="secondary" label="Contacter" />
+                </Link>
+              </ButtonStyled>
 
-          {/* BUTTONS */}
-          <ButtonsGroup className="buttons">
-            <button className="blue">Candidater</button>
-            <button className="white">Contacter</button>
-          </ButtonsGroup>
+            </SectionHeader>
 
+            <CardDispo>
+              <div>
+                <div>
+                  <IoMdCalendar />
+                  <p>
+                    Bien disponible à partir du <b>10/09/2021</b>
+                  </p>
+                </div>
+                <div>
+                  <MdLocationOn />
+                  <p>
+                    <b>
+                      {property.address}, {property.zipcode} {property.city}
+                    </b>
+                  </p>
+                </div>
+                <div>
+                  <MdEuroSymbol />
+                  <p>
+                    <b>{property.currentRentalWithoutCharges} €</b> / mois hors
+                    charges
+                  </p>
+                </div>
+              </div>
 
+              {/* Liens boutton : candidature valide / connection pour candidater / contact */}
+              <ButtonStyled>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/connectetoi`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                  <Button label="Candidater" />
+                </Link>
 
-          <SectionAccreditation className="border">
-            {property.accreditations.map((e) => {
-              return (
-                <figure>
-                  <img src="http://placekitten.com/56/56" />
-                  <figcaption>{e.label}</figcaption>
-                </figure>
-              );
-            })}
-          </SectionAccreditation>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/contact`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                <Button variant="secondary" label="Contacter" />
+                </Link>
+              </ButtonStyled>
 
-          <h3>
-            Les plus de{" "}
-            {property.constructionType.name === "Maison"
-              ? "la maison"
-              : "l'immeuble"}
-          </h3>
+            </CardDispo>
 
-          <SectionAccreditation className="border">
-            <figure>
-              <img src="http://placekitten.com/56/56" />
-              <figcaption>Coucou</figcaption>
-            </figure>
-            <figure>
-              <img src="http://placekitten.com/56/56" />
-              <figcaption>Coucou</figcaption>
-            </figure>
-          </SectionAccreditation>
+            <SectionAccreditation className="border">
+              {property.accreditations.map((e) => {
+                console.log(e);
+                return <Accreditation label={e.label} svgname={e.svgName} />;
+              })}
+            </SectionAccreditation>
 
-          <SectionDescription className="border">
-            <h3>A propos</h3>
-            <p>{property.description}</p>
-          </SectionDescription>
+            <h3>
+              Les plus de{" "}
+              {property.constructionType.name === "Maison"
+                ? "la maison"
+                : "l'immeuble"}
+            </h3>
+            <SectionAccreditation className="border">
+              <Accreditation />
+            </SectionAccreditation>
 
-          <h3>Information financière</h3>
-          <SectionFinancial className="border">
-            <div>
-            <p>Loyers hors charges</p>
-            <p>Charges</p>
-            <p>Loyers avec charges</p>
-            </div>
-            <div className="FinanceRight">
-            <b>1370 €</b>
-            <b>30 €</b>
-            <b>1400 €</b>
-            </div>
-          </SectionFinancial>
+            <SectionDescription className="border">
+              <h3>A propos</h3>
+              <p>{property.description}</p>
+            </SectionDescription>
 
-          <h3>Energie</h3>
+            <SectionLocalisation className="border">
+              <h3>Localisation</h3>
+              <h3>{property.address}</h3>
+              <div>{property && <Maps property={property.city} />}</div>
+            </SectionLocalisation>
 
-          <SectionEnergie className="BlockEnergie">
-            <div>
-              <h4>Diagnostic de performance énergétique</h4>
-              <Scoring
-                variant="dpe"
-                test="styleComponentTest"
-                score={property.energyPerformanceCertificate}
-                type="energie certif"
-              />
-            </div>
-            <div className="co2">
-              <h4>Indice d'émission de gaz à effet de serre</h4>
-              <Scoring
-                test="styleComponentTest"
-                score={property.greenHouseGas}
-                type="energie certif"
-              />
-            </div>
-          </SectionEnergie>
+            <h3>Informations financières</h3>
+            <SectionFinancial className="border">
+              <tbody>
+                <div>
+                  <td>
+                    <p>Loyers hors charges</p>
+                    <b>
+                      <nobr>{property.currentRentalWithoutCharges} €</nobr>
+                    </b>
+                  </td>
+                  <td className="border marge">
+                    <p>Charges</p>
+                    <b>
+                      <nobr>{property.rentCharges} €</nobr>
+                    </b>
+                  </td>
+                  <td className="border">
+                    <p class="loyercharge">Loyers avec charges</p>
+                    <b>
+                      <nobr>{property.bail} €</nobr>
+                    </b>
+                  </td>
+                  <td className="border">
+                    <p>Frais de dossier</p>
+                    <b>
+                      {/* Arrondi à 2 chiffres après la virgule */}
+                      <nobr>
+                        {" "}
+                        {Math.round(property.bail * 0.25 * 100) / 100} €{" "}
+                      </nobr>
+                    </b>
+                  </td>
+                </div>
+              </tbody>
+              <tbody>
+                <div>
+                  <h4>Caution demandée</h4>
+                  <p>
+                    <nobr>1600 €*</nobr>
+                  </p>
+                  <br />
+                  <i>
+                    * Montant conforme à la loi ALUR. La caution vous est rendu
+                    à la fin de la location sous réserve d’aucune dégradation,
+                    ou d’impayé.{" "}
+                  </i>
+                </div>
+              </tbody>
+            </SectionFinancial>
 
-          <ButtonsGroup className="buttons">
-            <button className="blue">Candidater</button>
-            <button className="white">Contacter</button>
-          </ButtonsGroup>
-        </Detail>
+            <h3>Energie</h3>
+
+            <SectionEnergie className="BlockEnergie">
+              <div>
+                <h4>Diagnostic de performance énergétique</h4>
+                <Scoring
+                  variant="dpe"
+                  test="styleComponentTest"
+                  score={property.energyPerformanceCertificate}
+                />
+              </div>
+              <div className="co2">
+                <h4>Indice d'émission de gaz à effet de serre</h4>
+                <Scoring
+                  test="styleComponentTest"
+                  score={property.greenHouseGas}
+                />
+              </div>
+            </SectionEnergie>
+
+            <QuestionFin>
+              <h4>Vous êtes intéressé par ce bien ? </h4>
+              <div>
+                <p>
+                  Contacter le propriétaire pour demander plus d’information et
+                  planifier une visite
+                </p>
+                <p>
+                  Candidater à cet appartement, le propriétaire étudira votre
+                  dossier et reviendra vers vous.
+                </p>
+              </div>
+
+              <ButtonStyled2>
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/connectetoi`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                  <Button label="Candidater" />
+                </Link>
+
+                <Link
+                  layoutId={id}
+                  to={{
+                    pathname: `/annonces/${property.id}/contact`,
+                    property: property,
+                  }}
+                  property={property}
+                >
+                <Button variant="secondary" label="Contacter" />
+                </Link>
+              </ButtonStyled2>
+            </QuestionFin>
+          </Detail>
+          <Map>{property && <Maps property={property.city} />}</Map>
+        </Global>
       )}
     </React.Fragment>
   );
 };
 
-const CardShadow = styled(motion.div)`
-  /* &.energie{
-    &.__item{
-      &.--A{
-        background-color: yellow;
-      }
-    }
-  } */
+const ButtonStyled = styled(motion.div)`
+  display: flex;
+  justify-content: space-around;
+  gap:0.1rem;
+  a button {
+    padding: 0.8rem 0rem;
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    width: clamp(8rem,44vw,17rem);
+  }
+  @media (min-width: 37.5em) {
+    gap:1rem;
+  }
 
-  /** Will take all the screen */
-  width: 100%;
-  min-height: 100vh;
-  /* when scroll , will stay on the screen */
-  overflow-y: scroll;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  z-index: 10;
-  /* Custom scroll barr */
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #ff7676;
-  }
-  &::-webkit-scrollbar-track {
-    background: white;
+`;
+
+const ButtonStyled2 = styled(motion.div)`
+  display: flex;
+  justify-content: space-around;
+
+  a button {
+    font-size: clamp(0.75rem, 5vw, 0.9rem);
+    width: clamp(6rem,44vw,14rem);
   }
 `;
-const AdresseStyled = styled(motion.section)`
 
-@media (max-width: 70em) {
-    display:none;
+const Global = styled(motion.div)`
+  display: flex;
+  @media (max-width: 68.75em) {
+    flex-direction: column;
   }
-
-  font-size:0.8rem;
-    text-align:center;
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    margin: 0 auto;
-    margin-top:2rem;
-    margin-bottom:1rem;
-
-    gap: 1rem;
-
-    padding:1.5rem 0rem;
-
-    border-top:solid 1px #000000;
-    border-bottom:solid 1px #000000;
-`;
-const ButtonsGroup = styled(motion.div)`
-
-  @media (max-width: 31.25em) {
-    display:flex;
-    padding-top: 1rem;
-    justify-content: space-around;
+  h4 {
+    padding: 1.5rem 0rem;
   }
-  @media (min-width: 31.25em) {
-    display:flex;
-    padding-top: 1rem;
-    gap:2rem;
-    justify-content: center;
-  }
-
-    display:flex;
-    padding-top: 1rem;
-    justify-content: space-around;
-
-    button{
-    border: 1px solid #0b3d91;
-    border-radius: 50px;
-    font-size: clamp(0.8rem,1.3vw,2rem);
-    text-align:center;
-    padding: 0.7em 0em;
-    color: #ffffff;
-    width: clamp(10rem,15vw,25rem);
-
-    margin-bottom: 0.375rem;
-    box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
-    }
-
-    .blue{
-      background: #0b3d91;
-    }
-    .white{
-      background: #ffffff;
-      color: #0b3d91;
-    }
-
-
-}
 `;
 
 const Detail = styled(motion.div)`
-  /* top: 5vh; */
-  /* width: 80%; */
-  width: 100%;
+  width: 70%;
 
-  /* border-radius: 0.4rem; */
+  @media (max-width: 68.75em) {
+    width: 100%;
+  }
 
   padding: 2rem min(3.5vw, 5rem);
+  p {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
 
   @media (min-width: 37.5em) {
     padding: 2rem min(7vw, 8rem);
   }
 
-  @media (min-width: 75em) {
-    padding: 2rem min(15vw, 9rem);
-  }
-
-  @media (min-width: 70em) {
-    padding: 2rem min(20vw,15rem);
-  }
-
-  background: white;
-  position: absolute;
-  /* left: 10%; */
-  color: black;
-  z-index: 10;
-
   h3 {
-    font-size: clamp(0.2rem, 5vw, 1rem);
-    padding: 1.5rem 0rem;
+    font-size: clamp(0.75rem, 5vw, 1.25rem);
+    padding: 3% 0%;
     font-weight: 700;
   }
 
   h4 {
     padding-top: 0rem;
-    font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+    font-size: clamp(0.9rem, 2vw, 0.95rem);
   }
- 
+
   .co2 {
     padding-top: 2rem;
   }
 
   .border {
     border-bottom: solid 1px rgba(63, 61, 86, 0.1);
-    padding-bottom: 3rem;
+    padding-bottom: 5%;
   }
-
-  figure {
-    display: flex;
-    word-break: break-word;
-    width: clamp(6rem, 5vw, 11rem);
-
-    flex-direction: column;
-    align-items: center;
-    img {
-      width: clamp(4rem, 5.5vw, 5rem);
-      height: clamp(4rem, 5.5vw, 5rem);
-
-      border-radius: 100%;
-    }
-  }
-  figcaption {
-    font-size: clamp(0.7rem, 1vw, 0.8rem);
-    text-align: center;
-    padding-top: 0.5rem;
+  .marge {
+    margin-bottom: 2rem;
   }
 `;
 
-const SectionAccreditation = styled(motion.section)`
-  padding-top: 3em;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-
-  gap: clamp(1rem, 1vw, 5rem) clamp(0.6rem, 1vw, 5rem);
-`;
-
-const SectionFinancial = styled(motion.section)`
-display: flex;
-justify-content: space-around;
-align-items: center;
-div{
-  display: flex;
-  flex-direction: column;
-
-}
-.FinanceRight{
-    align-items:flex-end;
-    display:flex;
-  }
-  b {
-    font-size: clamp(0.6rem, 4vw, 0.8rem);
-    line-height: 200%;
-    color: #3f3d56;
+const SectionHeaderOrdi = styled(motion.section)`
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  padding-bottom: 1rem;
+  @media (max-width: 37.4rem) {
+    display: none;
   }
 `;
 
 const SectionHeader = styled(motion.section)`
+  @media (min-width: 37.6rem) {
+    display: none;
+  }
+
+  /* .buttons button {
+    border-radius: 8px;
+  } */
+
+  /* div button {
+    margin: 4px;
+  } */
+
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+
   img {
     width: 2rem;
     height: 2rem;
@@ -364,43 +415,134 @@ const SectionHeader = styled(motion.section)`
   .card__title {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     width: 100%;
     padding: 1em 0em;
   }
   h1 {
-    font-size: clamp(0.9rem, 1vw, 2rem);
+    font-size: clamp(1.1rem, 2vw, 2rem);
+  }
+  h2 {
+    font-size: clamp(1.05rem, 2vw, 2rem);
   }
 `;
 
-const Platforms = styled(motion.div)`
+const CardDispo = styled(motion.div)`
+  @media (max-width: 37.5em) {
+    display: none;
+  }
+  gap:1rem;
+
   display: flex;
-  justify-content: space-evenly;
-  img {
-    margin-left: 3rem;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem 0rem;
+  padding: 1rem;
+
+  border: solid 1px lightgray;
+  border-radius: 2rem;
+  box-shadow: 0px 5px 4px lightgrey;
+
+  /* a .buttons {
+    gap: 1rem;
+    button {
+      font-size: clamp(0.8rem, 1.3vw, 1rem);
+      border-radius: 8px;
+    }
+  } */
+
+  div {
+    display: flex;
+    flex-direction: column;
   }
-`;
-const Info = styled(motion.div)`
-  text-align: center;
+  div div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 0.6rem;
+    padding: 0.6rem;
+  }
+  div svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #0b3d91;
+  }
 `;
 
-const Media = styled(motion.div)`
-  margin-top: 5rem;
-  img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  }
+const SectionAccreditation = styled(motion.section)`
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: clamp(1rem, 1vw, 5rem) clamp(0.75rem, 1vw, 5rem);
 `;
 
 const SectionDescription = styled(motion.section)`
-  /* margin: 5rem 0rem; */
   p {
-    text-overflow: ellipsis;
-    /* text-overflow: fade(20px); */
-    white-space: nowrap;
-    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap;
+    overflow: hidden; */
+    text-indent: 5%;
+    line-height: 2em;
+    text-align: justify;
+  }
+`;
+
+const SectionLocalisation = styled(motion.div)`
+  @media (max-width: 37.5em) {
+    display: none;
+  }
+
+  div {
+    width: 100%;
+    height: 50vh;
+  }
+`;
+
+const SectionFinancial = styled(motion.section)`
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: 37.5em) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    tbody {
+      width: 90%;
+    }
+  }
+
+  @media (min-width: 37.5em) {
+    tbody {
+      width: 50%;
+    }
+  }
+
+  tbody div {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 10px lightgray;
+    border-top: none;
+  }
+  td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 9%;
+    gap: 3rem;
+  }
+  .loyercharge {
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+  }
+  b {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
+  i {
+    font-size: clamp(0.75rem, 1vw, 0.8rem);
+    color: #757575;
   }
 `;
 
@@ -409,9 +551,50 @@ const SectionEnergie = styled(motion.section)`
   padding-bottom: 4rem;
 `;
 
-const Gallery = styled(motion.div)`
-  img {
-    padding: 1em 0;
+const QuestionFin = styled(motion.section)`
+  margin: 0 auto;
+  width: 80%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 10px 10px lightgray;
+  border-top: none;
+
+  /* button {
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    border-radius: 8px;
+  } */
+
+  @media (max-width: 37.6rem) {
+    width: 95%;
+    div p {
+      display: none;
+    }
+    /* div button {
+      margin: 4px;
+    } */
+  }
+
+  div p {
+    margin: 1rem 1rem;
+  }
+
+  div {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+  }
+  h4 {
+    text-align: center;
+  }
+`;
+
+const Map = styled(motion.section)`
+  width: 40%;
+  /* height:40vh; */
+
+  @media (max-width: 37.5em) {
+    width: 100%;
+    height: 60vh;
   }
 `;
 

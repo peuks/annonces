@@ -1,13 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import Maps from "../components/Maps";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
-import { propertiesUrl } from "../api/api";
+import { propertiesUrl, propertysUrl } from "../api/api";
 import propertyPlaceholder from "../images/placeholder_house.jpg";
 import { Link, useLocation } from "react-router-dom";
-import AnnonceDetail from "./AnnonceDetails.js";
+import Button from "../components/Button";
+
+import m2 from "../images/CircleIcons/m2.svg";
+import meuble from "../images/CircleIcons/meuble.svg";
+import chambre from "../images/CircleIcons/chambre.svg";
+
+// img react-icon
+import { GrLocation } from "react-icons/gr";
+import { BiSearch } from "react-icons/bi";
+import { CgMenu } from "react-icons/cg";
+import { MdLocationOn } from "react-icons/md";
 
 const AnnoncesTest = () => {
   const location = useLocation();
@@ -27,22 +37,40 @@ const AnnoncesTest = () => {
 
   return (
     <Annonces>
-      <h1>
-        Où acheter le meilleur <strong>chocopain</strong>
-      </h1>
+      <div className="menu">
+        <CgMenu />
+      </div>
 
-      <Container className="container">
-        <List className="list">
-           
-            {properties &&
-              properties.map((property) => {
-                return (
-                  <Annonce
-                    key={uuid()}
-                    onClick={() => {
-                      setTest(property.location);
-                    }}
-                  >
+      <Container>
+        <List>
+          <SearchBarStyled>
+            <form id="searchbox " method="get " action="search ">
+              <div>
+                <BiSearch />
+                <input
+                  name="q "
+                  type="text"
+                  size="15"
+                  placeholder="Où voulez-vous vivre ?"
+                />
+              </div>
+            </form>
+          </SearchBarStyled>
+
+          <h4>
+            <GrLocation /> Affichage vue carte
+          </h4>
+
+          {properties &&
+            properties.map((property) => {
+              return (
+                <Annonce
+                  key={uuid()}
+                  onClick={() => {
+                    setTest(property.location);
+                  }}
+                >
+                  <div className="imgSlider">
                     <img
                       src={
                         property.images.length > 0
@@ -53,41 +81,79 @@ const AnnoncesTest = () => {
                       }
                       alt="property image"
                     />
-                    <Content className="content">
-                      <div className="content__left">
-                        <div className="content__adress">
-                          <h4>
-                            {property.city} <span>{property.address}</span>
-                          </h4>
-                        </div>
-                        <p>{property.currentRentalWithoutCharges} €</p>
-                        <div className="content__icon">
+                  </div>
+
+                  <Content>
+                    <div>
+                      <TitreMobileStyled>
+                        <h1>
+                          <b>{property.city} </b>
+                        </h1>
+                        <h2>{property.address}</h2>
+                        <h3>
+                          <b>{property.bail} €</b>
+                        </h3>
+                      </TitreMobileStyled>
+
+                      <TitreOrdiStyled>
+                        <h2>
+                          <b>{property.bail} €</b> / mois charges comprises
+                        </h2>
+                        <h3>
+                          <MdLocationOn /> {property.address},{" "}
+                          {property.zipcode} {property.city}
+                        </h3>
+                      </TitreOrdiStyled>
+
+                      <div className="essentiel">
+                        <div>
+                          <img src={m2} alt="" />
                           <p>{property.size}m²</p>
+                        </div>
+                        <div>
+                          <img src={meuble} alt="" />
                           <p>{property.rentalType.type}</p>
-                          <p>4 ch</p>
+                        </div>
+                        <div>
+                          <img src={chambre} alt="" />
+                          <p>
+                            <nobr>{property.bedroom} ch.</nobr>
+                          </p>
                         </div>
                       </div>
-                      <div className="content__right">
-                        <Link
-                          layoutId={id}
-                          to={{
-                            pathname: `/annonces/${property.id}`,
-                            property: property,
-                          }}
-                          property={property}
-                        >
-                          <Button className="button button--primary">
-                            Candidater
-                          </Button>
-                        </Link>
-                        <Button className="button button--secondary">
-                          Contacter
-                        </Button>
-                      </div>
-                    </Content>
-                  </Annonce>
-                );
-              })}
+                    </div>
+
+                    <ButtonStyled>
+                      <Link
+                        layoutId={id}
+                        to={{
+                          pathname: `/annonces/${property.id}`,
+                          property: property,
+                        }}
+                        property={property}
+                      >
+                        <Button
+                          // variant="secondary"
+                          label="Voir plus"
+                        />
+                      </Link>
+
+                      <Link
+                        layoutId={id}
+                        to={{
+                          pathname: `/annonces/${property.id}/contact`,
+                          property: property,
+                        }}
+                        property={property}
+                      >
+                        <Button variant="secondary" label="Contacter" />
+                      </Link>
+                    </ButtonStyled>
+
+                  </Content>
+                </Annonce>
+              );
+            })}
         </List>
 
         <Map className="map" id="map">
@@ -98,22 +164,62 @@ const AnnoncesTest = () => {
   );
 };
 
+const ButtonStyled = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button {
+    width: clamp(5rem, 42vw, 11rem);
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+    margin-left: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (min-width: 31.25rem) {
+    button {
+      padding: 0.8rem 0rem;
+      font-size: clamp(0.9rem, 1.4vw, 1rem);
+    }
+  }
+
+  @media (min-width: 37.5rem) {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 68.75rem) {
+    button {
+      padding: 0.7em 0em !important;
+    }
+  }
+`;
+
 export default AnnoncesTest;
 const Annonce = styled(motion.div)`
-  /*  */
   border-radius: 0.5rem;
-  min-height: 42.8785607196vh;
-  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  box-shadow: 0px 5px 10px 0px lightgray;
+  border: lightgray solid 1px;
   cursor: pointer;
   transition: box-shadow 0.3s;
   background-color: #fff;
 
-  border-radius: 0.5rem;
-  min-height: 42.8785607196vh;
-  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
-  cursor: pointer;
-  transition: box-shadow 0.3s;
-  background-color: #fff;
+  @media (min-width: 68.75rem) {
+    display: flex;
+    justify-content: space-between;
+
+    .imgSlider img {
+      width: 40% !important;
+      height: 100% !important;
+      border-radius: 0.5rem 0 0 0.5rem !important;
+      max-height: 17rem;
+      min-width: 300px;
+    }
+  }
+
   img {
     display: block;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -129,76 +235,153 @@ const Annonce = styled(motion.div)`
 `;
 
 const Content = styled(motion.div)`
-  .content__icon {
-    display: flex;
-    flex-direction: row;
-    p {
-      padding-right: 0.2rem;
-    }
-  }
-  padding: 0.75em 1em 1em 1em;
-  min-height: 19.64017991vh;
-  min-width: 18.140929535232384vh;
+  padding: 1rem;
+  width: 100%;
+
   display: flex;
-  align-items: flex-end;
-  /* flex-wrap: wrap; */
-  justify-content: center;
-  @media only screen and (min-width: 280px) {
-    justify-content: space-between;
-  }
-  .content__left {
+  justify-content: space-between;
+
+  .essentiel {
+    gap: 0.3rem;
     display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    min-height: 16vh;
+    justify-content: space-around;
   }
-  .content__right {
-    height: 6em;
-    /* min-height: 16vh; */
+  .essentiel p {
+    font-size: 0.7rem;
+  }
+
+  .essentiel div {
+    gap: 0.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    .button {
-      &--primary {
-        background: #0b3d91;
-      }
-      &--secondary {
-        background: #ffffff;
-        color: #0b3d91;
-      }
+    align-items: center;
+  }
+
+  div img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+  }
+
+  @media (min-width: 17.6rem) {
+    div img {
+      width: 35px !important;
+      height: 35px !important;
+    }
+    .essentiel {
+      gap: 1rem !important;
     }
   }
-  .content__adress {
-    min-height: 4.197901049475262vh;
-    font-size: clamp(1.3rem, 1.6vw, 2rem);
-    span {
-      display: block;
+
+  @media (min-width: 25rem) {
+    .essentiel {
+      margin-left: 0.5rem;
+    }
+    div img {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+
+  @media (min-width: 31.25rem) {
+    .essentiel {
+      gap: 2rem !important;
+    }
+    div img {
+      width: 50px !important;
+      height: 50px !important;
+    }
+  }
+
+  @media (min-width: 37.6rem) {
+    display: block;
+    .essentiel p {
+      color: #0b3d91;
+    }
+  }
+
+  @media (min-width: 68.76rem) {
+    .essentiel {
+      justify-content: flex-start;
     }
   }
 `;
 
-const Button = styled(motion.div)`
-  /* background: #0b3d91; */
-  border: 1px solid #0b3d91;
-  border-radius: 50px;
-  font-size: 0.8445rem;
-  padding: 0.7em 3em;
-  color: #ffffff;
-  min-width: 7.375rem;
-  display: flex;
-  margin-bottom: 0.375rem;
-  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+const TitreMobileStyled = styled(motion.div)`
+  @media (min-width: 37.6rem) {
+    display: none;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: clamp(0.8rem, 1vw, 1rem);
+  }
+  h3 {
+    margin: 1rem 0rem;
+    font-size: 1rem;
+  }
+`;
+const TitreOrdiStyled = styled(motion.div)`
+  display: none;
+
+  @media (min-width: 37.5rem) {
+    display: block;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+  b {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0rem;
+    font-size: 0.9rem;
+    svg {
+      margin-right: 0.5rem;
+      color: #0b3d91;
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+  }
 `;
 
-const Annonces = styled(motion.div)``;
+const Annonces = styled(motion.div)`
+  @media (min-width: 37.5rem) {
+    .menu {
+      display: none;
+    }
+    h4 {
+      display: none !important;
+    }
+  }
+  .menu svg {
+    width: 2rem;
+    height: 2rem;
+    margin: 0.5rem;
+  }
+  h4 {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    svg {
+      margin-right: 0.4rem;
+    }
+  }
+`;
+
 const Container = styled(motion.div)`
   padding: 0 min(1.3vh, 5rem) 0 min(1.3vh, 5rem);
 
   @media only screen and (min-width: 700px) {
     padding: 0 min(1.3vh, 5rem) 0 min(4vh, 5rem);
-    grid-column-gap: 1rem;
+    grid-column-gap: 2rem;
     display: grid;
-    grid-template-columns: 5fr 7fr;
+    grid-template-columns: 5fr 5fr;
   }
 `;
 const List = styled(motion.div)`
@@ -214,7 +397,8 @@ const List = styled(motion.div)`
 
 const Map = styled(motion.div)`
   border-radius: 3px;
-  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+  /* box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px; */
+
   @media only screen and (min-width: 700px) {
     position: sticky !important;
     left: 0;
@@ -223,5 +407,39 @@ const Map = styled(motion.div)`
     height: calc(97vh - 2.4rem);
     transition: all 500ms linear 0s;
     /* height: 100vh; */
+  }
+`;
+
+const SearchBarStyled = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  /* @media (max-width: 37.5em) {
+    display: block;
+  } */
+  @media (min-width: 37.6em) {
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: solid 2px lightgray;
+    /* box-shadow: 0px 0px 5px 1px lightgrey; */
+  }
+
+  div {
+    padding: 0.7rem 1rem;
+    width: clamp(15rem, 50vw, 25rem);
+    box-shadow: 0px 0px 5px 1px lightgray;
+    border: none;
+
+    border-radius: 50px;
+    color: #3f3d56;
+    display: flex;
+    align-items: center;
+  }
+  div svg {
+    margin-right: 0.5rem;
+  }
+  input {
+    outline: 0;
+    border: none;
+    width: clamp(8rem, 10vw, 15rem);
   }
 `;
