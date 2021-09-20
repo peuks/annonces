@@ -11,7 +11,7 @@ const ValidationCandidature = ({ layoutId, type }) => {
     const element = e.target;
     if (element.classList.contains("card--shadow")) {
       document.body.style.overflow = "scroll";
-      history.push(`/annonces/${layoutId}`);
+      history.push(`/annonces`);
     }
   };
 

@@ -6,16 +6,10 @@ import Test from "./Test";
 // import test from "../images/CircleIcons/fibre.svg";
 
 const Accreditation = ({ label, svgname }) => {
-  console.log("ici");
-
-  console.log(svgname);
   return (
     <SectionAcred>
       <figure>
       <img src={require(`../images/CircleIcons/${svgname}.svg`)} />
-
-        {/* <img src={require(`../images/CircleIcons/fibre.svg`)} /> */}
-        {/* <Test/> */}
         <figcaption>{label}</figcaption>
       </figure>
     </SectionAcred>

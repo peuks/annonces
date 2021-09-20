@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { FaArrowAltCircleRight, ImArrowLeft2} from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styled from "styled-components";
 
