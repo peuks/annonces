@@ -568,8 +568,9 @@ const SectionFinancial = styled(motion.section)`
   .loyercharge {
     font-size: clamp(0.95rem, 3vw, 1.2rem);
   }
-  b {
+  p b {
     font-size: clamp(0.8rem, 2vw, 1rem);
+    font-weight:bold;
   }
   i {
     font-size: clamp(0.75rem, 1vw, 0.8rem);

@@ -332,8 +332,9 @@ const TitreOrdiStyled = styled(motion.div)`
   h2 {
     font-size: 1rem;
   }
-  b {
+  p b {
     font-size: 1.4rem;
+    font-weight:bold;
   }
 
   h3 {
