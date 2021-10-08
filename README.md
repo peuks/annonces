@@ -3,7 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Pap with displaying apartment cards on it as it is done on airbnb
+> App with displaying apartment cards on it as it is done on airbnb
 
 ### 🏠 [Homepage](https://apollo-immo.fr)
 
