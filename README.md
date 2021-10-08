@@ -20,6 +20,7 @@ yarn install
 ```sh
 yarn start
 ```
+Then open your browser and go to [localhost:3000/annonces](http://localhost:3000/annonces)
 
 ## Author
 
