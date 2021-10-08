@@ -5,7 +5,7 @@
 
 > Pap with displaying apartment cards on it as it is done on airbnb
 
-### 🏠 [Homepage](https://apollo-immo.fr/annonces)
+### 🏠 [Homepage](https://apollo-immo.fr)
 
 ### ✨ [Demo](https://apollo-immo.fr/annonces)
 
@@ -19,12 +19,6 @@ yarn install
 
 ```sh
 yarn start
-```
-
-## Run tests
-
-```sh
-yarn run test
 ```
 
 ## Author
